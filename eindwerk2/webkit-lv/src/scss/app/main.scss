@@ -1,0 +1,771 @@
+@import './fonts.scss';
+$image-path:'../img';
+// Extra small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+
+//General
+
+body{
+  background: #e4e5e7;
+  color: #343e5c;
+  font-weight: bold;
+  font-family:montserrat-reg;
+}
+//Homepagina
+
+#homeSectie1{
+  #navdeel1{
+    border-bottom: 1px solid #f0f2f7;
+    .col-lg-10{
+      .navbar{
+        div{
+          #btn1{
+            color: #343e5c;
+            background: #fff;
+            border-radius: 20px;
+            border: 1px solid #e3e8f0;
+          }
+          #form2{
+            a{
+              i{
+              }
+            }
+          }
+          #form1{
+            #zoekbar2{
+              width: 70%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#homeSectie2{
+  .row{
+    .col-lg-10{
+      #list1{
+        .list-group-item{
+          border: none;
+          color: #000;
+        }
+      }
+      #zoekbar{
+        width: 30%;
+      }
+    }
+  }
+}
+
+#homeSectie3{
+  #carouselExampleCaptions{
+    ol{
+      .indicatoren{
+        width: 10px !important;
+        height: 10px !important;
+        border-radius: 50%;
+      }
+    }
+    div{
+      .carousel-item{
+        .carousel-caption{
+          text-align: start!important;
+          .slidertitel{
+            text-align: start !important;
+            font-family: montserrat-bl;
+            font-size: 18px;
+          }
+          .slidertext{
+            text-align: start!important;
+          }
+          .btncaroussel{
+            width: 80px;
+            height: 15px;
+            font-size: 0.60rem;
+            background: #2754eb;
+            border-radius: 20px;
+            border-style: none;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+#homeSectie4{
+  .row{
+    .col-10{
+      #titelTS{
+        width: 80%;
+      }
+    }
+  }
+}
+#homeSectie5{
+  div{
+    article{
+      #btn2{
+        width: 25%;
+        background-color: #2754eb;
+        border-style: none;
+        font-size: 22px;
+        border: 2px solid #fff;
+        color: #fff;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+
+.fotosreviews{
+  width: 40px;
+  height: 40px;
+}
+.titelsreviews{
+  font-size: 16px;
+  font-weight: bold;
+}
+.ondertitelsreviews{
+  font-size: 14px;
+  color: #b9bed1;
+  font-style: italic;
+}
+.tekstreviews{
+  font-size: 16px;
+  color: #3a405b;
+}
+.subtekst{
+  font-size: 16px;
+  text-align: center;
+  color: #b9bed1;
+  font-style: italic;
+}
+
+#voeter{
+  background-color: #222328;
+  color: #fff;
+  .row{
+    .col-lg-10{
+      .row{
+        #voeterItems{
+          ul{
+            .zwartebg{
+              background-color: #222328;
+              font-size: 0.3rem;
+              border: none;
+            }
+          }
+        }
+        #voeterIcons{
+          .icoon{
+            color: white;
+          }
+        }
+      }
+      #rijvoeter{
+        border-top: 1px solid #2d2e33;
+        div{
+          .tekstvoeter{
+            font-size: 14px;
+            font-style: italic;
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+}
+
+#aantalItems{
+  background-color: #e3e8f0;
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+}
+
+
+//Checkout
+
+#checkoutDeel{
+  .row{
+    #coDeel1{
+
+    }
+    #coDeel2{
+      h2{
+        border-bottom: 1px solid #b9bed1;
+      }
+      ul{
+        .artikels{
+          list-style: none;
+          border-bottom: 1px solid #b9bed1;
+          .row{
+            .col-8{
+              div{
+                .titelArtikel{
+                  font-weight: bold;
+                }
+                .componentArtikel{
+                  color: #000;
+                  opacity: 0.6;
+                }
+              }
+            }
+          }
+        }
+      }
+      #hoeveelBetalen{
+        background-color: #f5f5f5;
+        div{
+          ul{
+            border: 1px solid #b9bed1;
+            list-style: none;
+            #totaalBedrag{
+              border-top: 1px solid #b9bed1;
+            }
+          }
+        }
+      }
+      #disclaimer{
+        font-size: 12px;
+      }
+      #bestelKnop{
+        width: 90%;
+        color: #fff;
+        background-color: #2754eb;
+        border: 1px solid #b9bed1;
+        border-radius: 25px;
+      }
+    }
+  }
+}
+
+// shop
+
+#sorted{
+  #sortedrow{
+    .col-10{
+      border-radius: 10px;
+      article{
+        .col-12{
+          p{
+            color: #a1a7bd;
+            font-size: 11px;
+          }
+          #selected{
+            width: 115px;
+            select{
+              border: none;
+              font-size: 11px;
+              font-weight: bolder;
+              option{
+
+              }
+            }
+          }
+          #keywords{
+            #inputkeywords{
+              width: 165px;
+              border-radius: 25px;
+              border: 1px solid #e3e8f0;
+              background-color: #f0f2f7;
+            }
+          }
+          #price{
+            color: #343e5c;
+            .inputsprice{
+              width: 70px;
+              border-radius: 25px;
+              border: 1px solid #e3e8f0;
+              background-color: #f0f2f7;
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
+#shopcenter{
+  .row{
+    .col-lg-10{
+      .row{
+        .col-3{
+          #accordion{
+            .card{
+              .card-header{
+                h5{
+                  button{
+                    color: #000;
+                  }
+
+                }
+
+              }
+              .collapse{
+                background-color: #f0f2f7;
+                .card-body{
+                  .cardTekst{
+                    font-size: 10px;
+                    text-align: center;
+                  }
+                }
+              }
+            }
+          }
+          #checkList{
+            background-color: #fff;
+            border-radius: 5px;
+            h4{
+              font-size: 15px;
+              border-bottom: #dfe4ee;
+            }
+            div{
+              p{
+                font-size: 15px;
+              }
+            }
+          }
+        }
+        .col-9{
+          .row{
+            .col-lg-4{
+              .card{
+                .card-body{
+                  .card-title{
+                    text-align: center;
+                  }
+                  p{
+                    text-align: center;
+                  }
+                  a{
+                    border-radius: 25px;
+                    background-color: #2754eb;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+//productpagina
+
+#productpage{
+  .row{
+    .col-3{
+      border-right: 1px solid #dbdde2;
+      ul{
+        li{
+          list-style: none;
+          #blauwradio{
+            background-color: #264fd7;
+          }
+          #roodradio{
+            background-color: #ff0000;
+          }
+          #grijsradio{
+            background-color: #808080;
+          }
+          .btn-colour{
+            position: relative;
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            margin-bottom: 0;
+            border-radius: 50%;
+            box-shadow: inset 0 0 0 5px #fff, 0 0 0 1px #ced4da;
+            background-position: center;
+            background-size: cover;
+            cursor: pointer;
+            transition: border-color .1s;
+          }
+          .btn-colour.active{
+            box-shadow: inset 0 0 0 5px #fff, 0 0 0 2px #495057;
+          }
+          .input-invisible{
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+          }
+        }
+      }
+      h2{
+        align-self: center;
+        font-weight: bold;
+        font-size: 18px;
+      }
+      p{
+        align-self: center;
+      }
+      a{
+        #backbtn{
+          font-size: 10px;
+          color: #fff;
+          background-color: #264fd7;
+          border: none;
+          border-radius: 10px;
+        }
+      }
+
+      #addbtn{
+        color: #fff;
+        background-color: #264fd7;
+        border: none;
+        border-radius: 20px;
+        width: 75%;
+        font-size: 12px;
+      }
+      #share{
+        p:hover{
+          border-bottom: 2px solid #000;
+          margin-bottom: 2px !important;
+        }
+      }
+      .qty .count {
+        color: #000;
+        display: inline-block;
+        vertical-align: top;
+        font-size: 25px;
+        font-weight: 700;
+        line-height: 30px;
+        padding: 0 2px
+      ;min-width: 35px;
+        text-align: center;
+      }
+      .qty .plus {
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: top;
+        color: white;
+        width: 30px;
+        height: 30px;
+        font: 30px/1 Arial,sans-serif;
+        text-align: center;
+        border-radius: 50%;
+      }
+      .qty .minus {
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: top;
+        color: white;
+        width: 30px;
+        height: 30px;
+        font: 30px/1 Arial,sans-serif;
+        text-align: center;
+        border-radius: 50%;
+        background-clip: padding-box;
+      }
+      div {
+        text-align: center;
+      }
+      .minus:hover{
+        background-color: #717fe0 !important;
+      }
+      .plus:hover{
+        background-color: #717fe0 !important;
+      }
+      /*Prevent text selection*/
+      span{
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
+      input{
+        border: 0;
+        width: 2%;
+      }
+      nput::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      input:disabled{
+        background-color:white;
+      }
+    }
+    .col-9{
+      .row{
+        .col-12{
+          p{
+            button{
+              background-color: #264fd7;
+              border-radius: 25px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//contact
+
+#contact1{
+  background-color: #fff;
+  border-top: 1px solid #f0f2f7;
+}
+#map{
+  iframe{
+    width: 100%;
+  }
+
+}
+#inTouch{
+  .row{
+    background-color: #fff;
+    .col-lg-8{
+      .row{
+        .form-group{
+          input{
+            width: 90%;
+          }
+        }
+        #btnContact{
+          #btnSend{
+            background-color: #264fd7;
+            color: #fff;
+            border-style: none;
+            border-radius: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  //homepagina
+  #voeter{
+    .row{
+      .col-lg-10{
+        .row{
+          #voeterItems{
+            ul{
+              .zwartebg{
+                font-size: 0.6rem;
+              }
+            }
+          }
+          #voeterIcons{
+            .icoon{
+            }
+          }
+        }
+        #rijvoeter{
+          div{
+            .tekstvoeter{
+
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //productpagina
+  #productpage{
+    .row{
+      .col-3{
+        a{
+          #backbtn{
+            font-size: 15px;
+            border-radius: 20px;
+          }
+        }
+
+        h2{
+          align-self: center;
+          font-weight: bold;
+          font-size: 24px;
+        }
+        #addbtn{
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  //homepagina
+  #voeter{
+    .row{
+      .col-lg-10{
+        .row{
+          #voeterItems{
+            ul{
+              .zwartebg{
+                font-size: 0.8rem;
+              }
+            }
+          }
+          #voeterIcons{
+            .icoon{
+            }
+          }
+        }
+        #rijvoeter{
+          div{
+            .tekstvoeter{
+
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //productpagina
+
+  #productpage{
+    .row{
+      .col-3{
+        a{
+          #backbtn{
+            font-size: 20px;
+            border-radius: 20px;
+          }
+        }
+
+        h2{
+          align-self: center;
+          font-weight: bold;
+          font-size: 28px;
+        }
+        #addbtn{
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  //homepagina
+  #homeSectie3{
+    #carouselExampleCaptions{
+      ol{
+        .indicatoren{
+          width: 10px !important;
+          height: 10px !important;
+          border-radius: 50%;
+        }
+      }
+      div{
+        .carousel-item{
+          .carousel-caption{
+            .slidertitel{
+              text-align: start !important;
+              font-family: montserrat-bl;
+              font-size: 42px;
+            }
+            .btncaroussel{
+              width: 170px;
+              height: 42px;
+              background: #2754eb;
+              border-radius: 20px;
+              border-style: none;
+              color: white;
+              margin-left: 105px;
+              font-size: 25px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #homeSectie4{
+    .row{
+      .col-10{
+        #titelTS{
+          width: 25%;
+        }
+      }
+    }
+  }
+  #homeSectie5{
+    div{
+      article{
+        #btn2{
+          width: 25%;
+          background-color: #2754eb;
+          border-style: none;
+          font-size: 22px;
+          border: 2px solid #fff;
+          color: #fff;
+          font-size: 25px;
+        }
+      }
+    }
+  }
+
+  #voeter{
+    .row{
+      .col-lg-10{
+        .row{
+          #voeterItems{
+            ul{
+              .zwartebg{
+                font-size: 1rem;
+              }
+            }
+          }
+          #voeterIcons{
+            .icoon{
+            }
+          }
+        }
+        #rijvoeter{
+          div{
+            .tekstvoeter{
+
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //productpagina
+
+  #productpage{
+    .row{
+      .col-3{
+        a{
+          #backbtn{
+            font-size: 25px;
+            border-radius: 20px;
+          }
+        }
+
+        h2{
+          align-self: center;
+          font-weight: bold;
+          font-size: 34px;
+        }
+        #addbtn{
+          font-size: 22px;
+        }
+      }
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}

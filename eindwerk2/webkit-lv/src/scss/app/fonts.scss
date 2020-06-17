@@ -1,0 +1,26 @@
+/**lokale fonts**/
+$fontface-path:'../fonts';
+@font-face {
+  font-family: pfr;
+  src: url('#{$fontface-path}/PlayfairDisplay-Regular.ttf');
+}
+@font-face {
+  font-family: ubl;
+  src: url('#{$fontface-path}/Ubuntu-Light.ttf');
+}
+@font-face {
+  font-family: 'montserrat-reg';
+  src:url('/fonts/Montserrat-Regular.ttf')format('truetype');
+}
+@font-face {
+  font-family: 'montserrat-bl';
+  src:url('/fonts/Montserrat-Black.ttf')format('truetype');
+}
+
+/*fontawesome**/
+
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/brands';

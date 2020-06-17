@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <title>Home</title>
+
+
+</head>
+<body>
+<header class="d-none">
+    <h1>product</h1>
+</header>
+<section id="homeSectie1" class="container-fluid">
+    <div class="row bg-white" id="navdeel1">
+        <div class="col-lg-10 offset-lg-1 my-3">
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <a class="navbar-brand" href="index.html"><img src="img/portland.png" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Devices</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Delivery & Payment</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Guarantee</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Us</a>
+                        </li>
+
+                    </ul>
+
+                    <form class="form-inline my-2 my-lg-0 d-flex ">
+                        <a href="checkout.html">
+                            <i class="fas fa-shopping-cart d-none d-lg-block"></i>
+                        </a>
+                        <p class="my-auto d-none d-lg-block">CART <span id="aantalItems" class="py-1 px-2 m-0">0</span></p>
+                    </form>
+                    <form id="form1" class="form-inline my-2 my-lg-0 d-block d-lg-none">
+                        <div id="zoekbar2" class="input-group ">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fas fa-search"></i></button>
+                            </div>
+                            <input type="text" class="form-control" placeholder="What are you looking for?" aria-label="Example text with button addon"
+                                   aria-describedby="button-addon1">
+                        </div>
+                    </form>
+                    <button id="btn1" class="px-3 mx-lg-4">sign in</button>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+</section>
+<section id="productpage" class="container-fluid">
+    <div class="row bg-white">
+        <div class="col-3 d-flex flex-column ">
+            <a href="shop.html" class="d-flex justify-content-center">
+                <div id="backbtn" class="my-3 my-lg-5 d-flex p-1 align-items-center justify-content-center"><i
+                        class="fas fa-arrow-left m-0 mr-2"></i>Back to Shop</div>
+            </a>
+
+            <h2 class="my-3">Product Name</h2>
+            <p>$123,45</p>
+            <p class="mb-1 mt-lg-4">color</p>
+            <ul class="d-lg-flex p-0 justify-content-center">
+                <li class="d-flex justify-content-center my-1">
+                    <label id="blauwradio" for="colour_Blue"  class="btn-colour mx-lg-2"></label>
+                    <input type="radio" name="colour" value="value_Blue" id="colour_Blue" class="input-invisible" required>
+                </li>
+                <li class="d-flex justify-content-center my-1">
+                    <label id="roodradio" for="colour_Blue"  class="btn-colour mx-lg-2"></label>
+                    <input type="radio" name="colour" value="value_Red" id="colour_Red" class="input-invisible" required>
+                </li>
+                <li class="d-flex justify-content-center my-1">
+                    <label id="grijsradio" for="colour_Blue"  class="btn-colour mx-lg-2"></label>
+                    <input type="radio" name="colour" value="value_Grey" id="colour_Grey" class="input-invisible" required>
+                </li>
+            </ul>
+
+
+            <div class="qty my-3">
+                <span class="minus bg-dark">-</span>
+                <input type="number" class="count" name="qty" value="1">
+                <span class="plus bg-dark">+</span>
+            </div>
+            <button id="addbtn" class="my-3 my-lg-4 mx-auto">Add to cart</button>
+            <div id="share" class="d-flex justify-content-center align-items-center my-3 my-lg-5">
+                <i class="fas fa-share-alt mr-2"></i>
+                <p class="m-0 my-1">SHARE THIS</p>
+            </div>
+
+
+
+
+        </div>
+        <div class="col-9 ">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center align-items-start mt-5 align-items-lg-center ">
+                    <img class="img-fluid" src="img/Box.png" alt="">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 ">
+                    <header>
+                        <h2>Een Box van JBL</h2>
+                    </header>
+                    <p class="d-flex justify-content-end m-4">
+
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
+                                aria-expanded="false" aria-controls="collapseExample">
+                            Specifications
+                            <i class="fas fa-long-arrow-alt-down"></i>
+                        </button>
+                    </p>
+                    <div class="collapse mb-4" id="collapseExample">
+                        <div class="card card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="voeter" class="container-fluid">
+    <div class="row py-5">
+        <div class="col-lg-10 offset-lg-1">
+            <div class="row">
+                <div class="col-lg-4 d-flex align-items-center">
+                    <img src="img/portland2.png" alt="">
+                </div>
+                <div id="voeterItems" class="col-lg-4">
+                    <ul class="list-group list-group-horizontal d-flex justify-content-around">
+                        <li class="list-group-item zwartebg">HOME</li>
+                        <li class="list-group-item zwartebg">SHOP</li>
+                        <li class="list-group-item zwartebg">TEAM</li>
+                        <li class="list-group-item zwartebg">ABOUT US</li>
+                        <li class="list-group-item zwartebg">CONTACTS</li>
+                    </ul>
+                </div>
+                <div id="voeterIcons" class="col-lg-4 d-flex justify-content-end align-items-center mb-2 mb-lg-0">
+                    <i class="icoon fab fa-twitter mx-3"></i>
+                    <i class="icoon fab fa-facebook mx-3"></i>
+                    <i class="icoon fab fa-google-plus-g mx-3"></i>
+                </div>
+            </div>
+            <div id="rijvoeter" class="row pt-5">
+                <div class="col-lg-6">
+                    <p class="tekstvoeter">She gave my mother such a turn, that I have always been convinced I am indebted to Miss Betsey
+                        for having been born on a Friday.</p>
+                </div>
+
+                <div class="col-lg-6 d-flex justify-content-center justify-content-lg-end">
+                    <p class="tekstvoeter">PRIVACY POLICY</p>
+                    <p class="tekstvoeter">TERMS AND CONDITIONS</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
