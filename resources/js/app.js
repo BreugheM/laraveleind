@@ -5,13 +5,13 @@
  */
 
 //require('./bootstrap');
-require('../../resources/assets/admin_assets/vendor/jquery/jquery');
-require('../../resources/assets/admin_assets/vendor/bootstrap/js/bootstrap.bundle.min');
-require('../../resources/assets/admin_assets/vendor/jquery-easing/jquery.easing.min');
-require('../../resources/assets/admin_assets/js/sb-admin-2.min');
-require('../../resources/assets/admin_assets/vendor/chart.js/Chart.bundle.min');
-require('../../resources/assets/admin_assets/js/demo/chart-area-demo');
-require('../../resources/assets/admin_assets/js/demo/chart-pie-demo');
+require('../assets/admin_assets/vendor/jquery/jquery');
+require('../assets/admin_assets/vendor/bootstrap/js/bootstrap.bundle.min');
+require('../assets/admin_assets/vendor/jquery-easing/jquery.easing.min');
+require('../assets/admin_assets/js/sb-admin-2.min');
+require('../assets/admin_assets/vendor/chart.js/Chart.bundle.min');
+require('../assets/admin_assets/js/demo/chart-area-demo');
+require('../assets/admin_assets/js/demo/chart-pie-demo');
 
 window.Vue = require('vue');
 

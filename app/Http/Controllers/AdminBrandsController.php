@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
 use Illuminate\Http\Request;
 
 class AdminBrandsController extends Controller
@@ -14,6 +15,8 @@ class AdminBrandsController extends Controller
     public function index()
     {
         //
+        $brands = Brand::all();
+        return view('admin.brands.index', compact('brands'));
     }
 
     /**
@@ -24,6 +27,7 @@ class AdminBrandsController extends Controller
     public function create()
     {
         //
+        return view('admin.brands.create');
     }
 
     /**
@@ -35,6 +39,8 @@ class AdminBrandsController extends Controller
     public function store(Request $request)
     {
         //
+        Brand::create($request->all());
+        return redirect('admin/brands');
     }
 
     /**
@@ -54,9 +60,9 @@ class AdminBrandsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Brand $brand)
     {
-        //
+        return view('admin.brands.edit', compact('brand'));
     }
 
     /**
@@ -66,9 +72,11 @@ class AdminBrandsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Brand $brand)
     {
         //
+        $brand->update($request->all());
+        return redirect('admin/brands');
     }
 
     /**
@@ -77,8 +85,10 @@ class AdminBrandsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Brand $brand)
     {
         //
+        $brand->delete();
+        return redirect('admin/brands');
     }
 }

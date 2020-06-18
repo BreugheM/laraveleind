@@ -45572,19 +45572,19 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _typeof
  * building robust, powerful web applications using Vue and Laravel.
  */
 //require('./bootstrap');
-__webpack_require__(/*! ../../resources/assets/admin_assets/vendor/jquery/jquery */ "./resources/assets/admin_assets/vendor/jquery/jquery.js");
+__webpack_require__(/*! ../assets/admin_assets/vendor/jquery/jquery */ "./resources/assets/admin_assets/vendor/jquery/jquery.js");
 
-__webpack_require__(/*! ../../resources/assets/admin_assets/vendor/bootstrap/js/bootstrap.bundle.min */ "./resources/assets/admin_assets/vendor/bootstrap/js/bootstrap.bundle.min.js");
+__webpack_require__(/*! ../assets/admin_assets/vendor/bootstrap/js/bootstrap.bundle.min */ "./resources/assets/admin_assets/vendor/bootstrap/js/bootstrap.bundle.min.js");
 
-__webpack_require__(/*! ../../resources/assets/admin_assets/vendor/jquery-easing/jquery.easing.min */ "./resources/assets/admin_assets/vendor/jquery-easing/jquery.easing.min.js");
+__webpack_require__(/*! ../assets/admin_assets/vendor/jquery-easing/jquery.easing.min */ "./resources/assets/admin_assets/vendor/jquery-easing/jquery.easing.min.js");
 
-__webpack_require__(/*! ../../resources/assets/admin_assets/js/sb-admin-2.min */ "./resources/assets/admin_assets/js/sb-admin-2.min.js");
+__webpack_require__(/*! ../assets/admin_assets/js/sb-admin-2.min */ "./resources/assets/admin_assets/js/sb-admin-2.min.js");
 
-__webpack_require__(/*! ../../resources/assets/admin_assets/vendor/chart.js/Chart.bundle.min */ "./resources/assets/admin_assets/vendor/chart.js/Chart.bundle.min.js");
+__webpack_require__(/*! ../assets/admin_assets/vendor/chart.js/Chart.bundle.min */ "./resources/assets/admin_assets/vendor/chart.js/Chart.bundle.min.js");
 
-__webpack_require__(/*! ../../resources/assets/admin_assets/js/demo/chart-area-demo */ "./resources/assets/admin_assets/js/demo/chart-area-demo.js");
+__webpack_require__(/*! ../assets/admin_assets/js/demo/chart-area-demo */ "./resources/assets/admin_assets/js/demo/chart-area-demo.js");
 
-__webpack_require__(/*! ../../resources/assets/admin_assets/js/demo/chart-pie-demo */ "./resources/assets/admin_assets/js/demo/chart-pie-demo.js");
+__webpack_require__(/*! ../assets/admin_assets/js/demo/chart-pie-demo */ "./resources/assets/admin_assets/js/demo/chart-pie-demo.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**

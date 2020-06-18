@@ -1,2 +1,12 @@
+@import '../../resources/assets/front_assets/css/app.css';
+@import '../../resources/assets/front_assets/css/style.css';
 @import '../../resources/assets/front_assets/css/main.scss';
+
+
+$fa-font-path:"../webfonts";
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/solid';
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/brands';
+
 //@import '../../resources/assets/front_assets/css/app.css';
+

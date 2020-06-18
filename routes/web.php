@@ -21,7 +21,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/','FrontendController@index')->name('index');
+Route::get('/shop','FrontendController@shop')->name('shop');
 Route::get('/products/brands/{id}','FrontendController@productsPerBrand')->name('productsPerBrand');
+Route::get('/products/categories/{id}','FrontendController@productsPerCategory')->name('productsPerCategory');
 Route::get('/products/addToCart{id}', 'FrontendController@addToCart')->name('addToCart');
 Route::get('/checkout', 'FrontendController@cart')->name('checkout');
 Route::post('/checkout', 'FrontendController@updateQuantity')->name('quantity');

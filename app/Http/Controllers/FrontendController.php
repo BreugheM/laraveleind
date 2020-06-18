@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Cart;
+use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -18,8 +19,15 @@ class FrontendController extends Controller
     }
     public function productsPerBrand($id){
         $brands = Brand::all();
+        $categories = Category::all();
         $products = Product::with(['brand','photo'])->where('brand_id', '=', $id)->get();
-        return view('shop', compact('products', 'brands'));
+        return view('shop', compact('products', 'brands', 'categories'));
+    }
+    public function productsPerCategory($id){
+        $categories = Category::all();
+        $brands = Brand::all();
+        $products = Product::with(['category','photo'])->where('category_id', '=', $id)->get();
+        return view('shop', compact('products', 'categories', 'brands'));
     }
 
     public function addToCart($id){
@@ -60,5 +68,11 @@ class FrontendController extends Controller
         Session::put('cart', $cart);
 
         return redirect('/checkout');
+    }
+    public function shop(){
+        $brands = Brand::all();
+        $categories = Category::all();
+        $products = Product::with(['brand','photo'])->get();
+        return view('shop',compact('products','categories', 'brands'));
     }
 }

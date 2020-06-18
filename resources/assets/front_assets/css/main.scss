@@ -1,4 +1,14 @@
-$image-path:'../img';
+$image-path:'../images';
+
+
+@font-face {
+    font-family: 'montserrat-reg';
+    src:url('/fonts/Montserrat-Regular.ttf')format('truetype');
+}
+@font-face {
+    font-family: 'montserrat-bl';
+    src:url('/fonts/Montserrat-Black.ttf')format('truetype');
+}
 // Extra small devices (portrait phones, less than 576px)
 // No media query for `xs` since this is the default in Bootstrap
 
@@ -9,7 +19,7 @@ body{
     background: #e4e5e7;
     color: #343e5c;
     font-weight: bold;
-
+    font-family:montserrat-reg;
 }
 //Homepagina
 
@@ -232,8 +242,13 @@ body{
             #disclaimer{
                 font-size: 12px;
             }
+            #backToShop{
+                color: #fff;
+                background-color: #343a40;
+                border: 1px solid #b9bed1;
+                border-radius: 25px;
+            }
             #bestelKnop{
-                width: 90%;
                 color: #fff;
                 background-color: #2754eb;
                 border: 1px solid #b9bed1;
@@ -308,10 +323,15 @@ body{
                             .collapse{
                                 background-color: #f0f2f7;
                                 .card-body{
-                                    .cardTekst{
-                                        font-size: 10px;
-                                        text-align: center;
+                                    a{
+                                        color: black;
+                                        .cardTekst{
+                                            font-size: 10px;
+                                            text-align: center;
+                                            color: black;
+                                        }
                                     }
+
                                 }
                             }
                         }

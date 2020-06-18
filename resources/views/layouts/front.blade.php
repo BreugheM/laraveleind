@@ -7,7 +7,6 @@
 
     <title>@yield('title')</title>
 
-
     {{--<link href="app.css" rel="stylesheet">--}}
     <link rel="stylesheet" href="{{asset('css/front-app.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
@@ -24,7 +23,7 @@
     <div class="row bg-white" id="navdeel1">
         <div class="col-lg-10 offset-lg-1 my-3">
             <nav class="navbar navbar-expand-lg navbar-light ">
-                <a class="navbar-brand" href="index.html"><img src="images/portland.png" alt=""></a>
+                <a class="navbar-brand" href="{{route('index')}}"><img src="{{asset('images/portland.png')}}" alt=""></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -48,13 +47,14 @@
                         </li>
 
                     </ul>
+                    <a href="{{route('checkout')}}">
+                        <span class="fa-2x" data-count="">
 
-                    <form id="form2" class="form-inline my-2 my-lg-0 d-flex ">
-                        <a href="checkout.html">
-                            <i class="fas fa-shopping-cart d-none d-lg-block"></i>
-                        </a>
-                        <p class="my-auto d-none d-lg-block">CART <span id="aantalItems" class="py-1 px-2 m-0">0</span></p>
-                    </form>
+                                <i class="fa fa-shopping-cart fa-2x primary-cart"></i>
+                            </span>
+                    </a>
+
+                        <p class="my-auto d-none d-lg-block">CART <span id="aantalItems" class="py-1 px-2 m-0">{{Session::has('cart') ? Session::get('cart')->totalQuantity:'0'}}</span></p>
                     <form id="form1" class="form-inline my-2 my-lg-0 d-block d-lg-none">
                         <div id="zoekbar2" class="input-group ">
                             <div class="input-group-prepend">
@@ -78,7 +78,7 @@
         <div class="col-lg-10 offset-lg-1">
             <div class="row">
                 <div class="col-lg-4 d-flex align-items-center">
-                    <img src="images/portland2.png" alt="">
+                    <img src="{{asset('images/portland2.png')}}" alt="">
                 </div>
                 <div id="voeterItems" class="col-lg-4">
                     <ul class="list-group list-group-horizontal d-flex justify-content-around">
@@ -86,7 +86,7 @@
                         <li class="list-group-item zwartebg">SHOP</li>
                         <li class="list-group-item zwartebg">TEAM</li>
                         <li class="list-group-item zwartebg">ABOUT US</li>
-                        <li class="list-group-item zwartebg">CONTACTS</li>
+                        <li class="list-group-item zwartebg">CONTACT</li>
                     </ul>
                 </div>
                 <div id="voeterIcons" class="col-lg-4 d-flex justify-content-end align-items-center mb-2 mb-lg-0">

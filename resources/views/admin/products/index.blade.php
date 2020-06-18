@@ -54,6 +54,19 @@
                         <td>{{$product->price}}</td>
                         <td>{{$product->created_at}}</td>
                         <td>{{$product->updated_at}}</td>
+                        <td>
+                            <form method="POST" action="{{action('AdminProductsController@destroy', $product->id)}}"
+                                  enctype="multipart/form-data">
+                                @csrf
+                                @method('DELETE')
+                                <div class="form-group">
+                                    <button type="submit" class="rounded-pill btn btn-outline-danger"><i class="fas fa-trash"></i>
+                                        Delete product
+                                    </button>
+                                </div>
+
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             @endif
