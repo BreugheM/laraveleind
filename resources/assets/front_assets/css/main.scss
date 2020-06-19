@@ -355,15 +355,20 @@ body{
                         .col-lg-4{
                             .card{
                                 .card-body{
-                                    .card-title{
-                                        text-align: center;
+                                    a{
+                                        .card-title{
+                                            text-align: center;
+                                            color: white;
+                                        }
                                     }
+
                                     p{
                                         text-align: center;
                                     }
                                     a{
                                         border-radius: 25px;
                                         background-color: #2754eb;
+
                                     }
                                 }
                             }

@@ -132,4 +132,9 @@ class AdminProductsController extends Controller
         $products = Product::with(['category','brand','photo'])->where('brand_id', '=', $id)->get();
         return view('admin.products.index', compact('products', 'brands'));
     }
+    public function product($slug){
+        $product = Product::where('slug', $slug)->first();
+        //$comments = $post->comments()->whereIsActive(1)->get();
+        return view('product', compact('product'));
+    }
 }

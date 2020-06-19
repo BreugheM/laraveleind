@@ -28,6 +28,9 @@ Route::get('/products/addToCart{id}', 'FrontendController@addToCart')->name('add
 Route::get('/checkout', 'FrontendController@cart')->name('checkout');
 Route::post('/checkout', 'FrontendController@updateQuantity')->name('quantity');
 Route::get('/removeItem/{id}', 'FrontendController@removeItem')->name('removeItem');
+Route::get('/product/{slug}', 'AdminProductsController@product')->name('home.product');
+Route::get('/contact', 'ContactController@create');
+Route::post('/contact','ContactController@store');
 
 //backend
 Route::get('/admin', function(){

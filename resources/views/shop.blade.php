@@ -213,7 +213,10 @@
                                     momenteel"}}"
                                          class="card-img-top" alt="...">
                                     <div class="card-body d-flex flex-column justify-content-center">
-                                        <h4 class="card-title">{{$product->name}}</h4>
+                                        <a href="{{--{{route("product/" . $product->id)}}--}}">
+                                            <h4 class="card-title">{{$product->name}}</h4>
+                                        </a>
+
                                         <h5 class="d-flex justify-content-center">€ {{$product->price}} </h5>
                                         <p class="card-text">{{$product->description}}.</p>
                                         <a href="{{route('addToCart', $product->id)}}" class="btn btn-primary"><b>BUY</b></a>

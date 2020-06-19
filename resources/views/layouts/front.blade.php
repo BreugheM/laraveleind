@@ -86,7 +86,10 @@
                         <li class="list-group-item zwartebg">SHOP</li>
                         <li class="list-group-item zwartebg">TEAM</li>
                         <li class="list-group-item zwartebg">ABOUT US</li>
-                        <li class="list-group-item zwartebg">CONTACT</li>
+                        <a href="">
+                            <li class="list-group-item zwartebg">CONTACT</li>
+                        </a>
+
                     </ul>
                 </div>
                 <div id="voeterIcons" class="col-lg-4 d-flex justify-content-end align-items-center mb-2 mb-lg-0">

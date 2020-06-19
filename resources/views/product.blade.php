@@ -1,0 +1,78 @@
+@extends('layouts.front')
+@section('title')
+    Shop
+@endsection
+@section('content')
+    <section id="productpage" class="container-fluid">
+        <div class="row bg-white">
+            <div class="col-3 d-flex flex-column ">
+                <a href="shop.html" class="d-flex justify-content-center">
+                    <div id="backbtn" class="my-3 my-lg-5 d-flex p-1 align-items-center justify-content-center"><i
+                            class="fas fa-arrow-left m-0 mr-2"></i>Back to Shop</div>
+                </a>
+
+                <h2 class="my-3">Product Name</h2>
+                <p>$123,45</p>
+                <p class="mb-1 mt-lg-4">color</p>
+                <ul class="d-lg-flex p-0 justify-content-center">
+                    <li class="d-flex justify-content-center my-1">
+                        <label id="blauwradio" for="colour_Blue"  class="btn-colour mx-lg-2"></label>
+                        <input type="radio" name="colour" value="value_Blue" id="colour_Blue" class="input-invisible" required>
+                    </li>
+                    <li class="d-flex justify-content-center my-1">
+                        <label id="roodradio" for="colour_Blue"  class="btn-colour mx-lg-2"></label>
+                        <input type="radio" name="colour" value="value_Red" id="colour_Red" class="input-invisible" required>
+                    </li>
+                    <li class="d-flex justify-content-center my-1">
+                        <label id="grijsradio" for="colour_Blue"  class="btn-colour mx-lg-2"></label>
+                        <input type="radio" name="colour" value="value_Grey" id="colour_Grey" class="input-invisible" required>
+                    </li>
+                </ul>
+
+
+                <div class="qty my-3">
+                    <span class="minus bg-dark">-</span>
+                    <input type="number" class="count" name="qty" value="1">
+                    <span class="plus bg-dark">+</span>
+                </div>
+                <button id="addbtn" class="my-3 my-lg-4 mx-auto">Add to cart</button>
+                <div id="share" class="d-flex justify-content-center align-items-center my-3 my-lg-5">
+                    <i class="fas fa-share-alt mr-2"></i>
+                    <p class="m-0 my-1">SHARE THIS</p>
+                </div>
+
+
+
+
+            </div>
+            <div class="col-9 ">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center align-items-start mt-5 align-items-lg-center ">
+                        <img class="img-fluid" src="img/Box.png" alt="">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 ">
+                        <header>
+                            <h2>Een Box van JBL</h2>
+                        </header>
+                        <p class="d-flex justify-content-end m-4">
+
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
+                                    aria-expanded="false" aria-controls="collapseExample">
+                                Specifications
+                                <i class="fas fa-long-arrow-alt-down"></i>
+                            </button>
+                        </p>
+                        <div class="collapse mb-4" id="collapseExample">
+                            <div class="card card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+@endsection
