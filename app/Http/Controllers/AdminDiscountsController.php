@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Discount;
 use Illuminate\Http\Request;
 
 class AdminDiscountsController extends Controller
@@ -14,6 +15,8 @@ class AdminDiscountsController extends Controller
     public function index()
     {
         //
+        $discounts = Discount::all();
+        return view('admin.discounts.index', compact('discounts'));
     }
 
     /**
@@ -24,6 +27,7 @@ class AdminDiscountsController extends Controller
     public function create()
     {
         //
+        return view('admin.discounts.create');
     }
 
     /**
@@ -35,6 +39,8 @@ class AdminDiscountsController extends Controller
     public function store(Request $request)
     {
         //
+        Discount::create($request->all());
+        return redirect('admin/discounts');
     }
 
     /**
@@ -54,9 +60,10 @@ class AdminDiscountsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Discount $discount)
     {
         //
+        return view('admin.discounts.edit', compact('discount'));
     }
 
     /**
@@ -66,9 +73,11 @@ class AdminDiscountsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Discount $discount)
     {
         //
+        $discount->update($request->all());
+        return redirect('admin/discounts');
     }
 
     /**
@@ -77,8 +86,10 @@ class AdminDiscountsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Discount $discount)
     {
         //
+        $discount->delete();
+        return redirect('admin/discounts');
     }
 }

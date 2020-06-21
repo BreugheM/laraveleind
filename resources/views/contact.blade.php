@@ -36,52 +36,6 @@
             </div>
         </div>
     </section>
-    <section id="homeSectie3" class="container-fluid p-0">
-        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active indicatoren"></li>
-                <li data-target="#carouselExampleCaptions" data-slide-to="1" class="indicatoren"></li>
-                <li data-target="#carouselExampleCaptions" data-slide-to="2" class="indicatoren"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{asset('images/Placeholder.png')}}" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-flex flex-column justify-content-start ">
-                        <h5 class="slidertitel mr-auto w-50 mb-xl-5">iPhone 6 32Gb Black</h5>
-                        <p class="slidertext mr-auto w-50 d-none d-lg-block">At first, for some time, I was not able to answer him one word; but as he had
-                            taken me in his arms I held fast by him, or I should have fallen to the ground.</p>
-                        <button class="btncaroussel mb-lg-4">Buy now </button>
-                    </div>
-                </div>
-                <div class="carousel-item ">
-                    <img src="{{asset('images/Placeholder.png')}}" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-flex flex-column justify-content-start ">
-                        <h5 class="slidertitel mr-auto w-50 mb-xl-5">iPhone 6 32Gb Black</h5>
-                        <p class="slidertext mr-auto w-50 d-none d-lg-block">At first, for some time, I was not able to answer him one word; but as he had
-                            taken me in his arms I held fast by him, or I should have fallen to the ground.</p>
-                        <button class="btncaroussel mb-lg-4">Buy now </button>
-                    </div>
-                </div>
-                <div class="carousel-item ">
-                    <img src="{{asset('images/Placeholder.png')}}" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-flex flex-column justify-content-start ">
-                        <h5 class="slidertitel mr-auto w-50 mb-xl-5">iPhone 6 32Gb Black</h5>
-                        <p class="slidertext mr-auto w-50 d-none d-lg-block">At first, for some time, I was not able to answer him one word; but as he had
-                            taken me in his arms I held fast by him, or I should have fallen to the ground.</p>
-                        <button class="btncaroussel mb-lg-4">Buy now </button>
-                    </div>
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </section>
     <section id="contact1" class="container-fluid py-4">
         <div class="row">
             <div class="col-md-10 offset-md-1">
@@ -128,27 +82,31 @@
                 <p>We don't spam we promise!</p>
             </div>
             <div class="col-lg-8 ">
-                <div class="row">
-                    <div class="col-md-6 form-group">
-                        <label for="inputName">Your name</label>
-                        <input type="text" id="inputName" placeholder="Your name" class="form-control">
+                <form action="{{action('ContactController@store')}}" method="POST">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="name">Your name</label>
+                            <input type="text" id="name" placeholder="Your name" class="form-control">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="email">email</label>
+                            <input type="email" id="email" placeholder="email" class="form-control">
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="subject">Subject</label>
+                            <input type="text" placeholder="subject" class="form-control" id="subject">
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="message">Message</label>
+                            <textarea rows="3" placeholder="Put your message here" class="form-control" id="message"></textarea>
+                        </div>
+                        <div id="btnContact" class="col-12 mt-3 mb-5">
+                            <button type="submit" id="btnSend">Send message</button>
+                        </div>
                     </div>
-                    <div class="col-md-6 form-group">
-                        <label for="inputEmail">email</label>
-                        <input type="email" id="inputEmail" placeholder="email" class="form-control">
-                    </div>
-                    <div class="form-group col-12">
-                        <label for="inputSubject">Subject</label>
-                        <input type="text" placeholder="subject" class="form-control" id="inputSubject">
-                    </div>
-                    <div class="form-group col-12">
-                        <label for="inputText">Message</label>
-                        <textarea rows="3" placeholder="Put your message here" class="form-control" id="inputText"></textarea>
-                    </div>
-                    <div id="btnContact" class="col-12 mt-3 mb-5">
-                        <button id="btnSend">Send message</button>
-                    </div>
-                </div>
+                </form>
+
             </div>
 
         </div>

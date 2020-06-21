@@ -82,11 +82,17 @@
                 </div>
                 <div id="voeterItems" class="col-lg-4">
                     <ul class="list-group list-group-horizontal d-flex justify-content-around">
-                        <li class="list-group-item zwartebg">HOME</li>
-                        <li class="list-group-item zwartebg">SHOP</li>
+
+                        <a href="{{route('home')}}">
+                            <li class="list-group-item zwartebg" style="color: white">HOME</li>
+                        </a>
+                        <a href="{{route('shop')}}" style="color: white">
+                            <li class="list-group-item zwartebg">SHOP</li>
+                        </a>
+
                         <li class="list-group-item zwartebg">TEAM</li>
                         <li class="list-group-item zwartebg">ABOUT US</li>
-                        <a href="">
+                        <a href="{{route('contact')}}" style="color: white">
                             <li class="list-group-item zwartebg">CONTACT</li>
                         </a>
 

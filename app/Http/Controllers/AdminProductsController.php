@@ -67,6 +67,7 @@ class AdminProductsController extends Controller
     public function show($id)
     {
         //
+
     }
 
     /**
@@ -121,7 +122,7 @@ class AdminProductsController extends Controller
         //
         $product = Product::findOrFail($id);
         if ($product->photo !== null){
-            unlink(public_path() . $product->photo->file);
+            unlink(public_path('images/products/' . $product->photo->file));
             $product->photo->delete();
         }
         $product->delete();
@@ -133,7 +134,7 @@ class AdminProductsController extends Controller
         return view('admin.products.index', compact('products', 'brands'));
     }
     public function product($slug){
-        $product = Product::where('slug', $slug)->first();
+        $product = Product::where('name', $slug)->first();
         //$comments = $post->comments()->whereIsActive(1)->get();
         return view('product', compact('product'));
     }

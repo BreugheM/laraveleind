@@ -19,7 +19,10 @@ class AdminUsersController extends Controller
     public function index()
     {
         //
-        $users = User::with(['photo', 'roles'])->paginate(8);
+
+        //$roles = Role::all();
+
+        $users = User::paginate(8);
         return view('admin.users.index', compact('users'));
     }
 
@@ -58,7 +61,7 @@ class AdminUsersController extends Controller
         $user->password = Hash::make($request['password']);
         $user->save();
         //User::create($input);
-        $user->roles()->sync($request->roles, false);
+        $user->role_id = $request->role_id;
 
 
         Session::flash('success', $request->name . ' roles added');
@@ -131,13 +134,12 @@ class AdminUsersController extends Controller
     {
         //
         $user = User::findOrFail($id);
-        dd($user->photo);
+        //dd($user->photo);
         if($user->photo !== null){
-            unlink(public_path() . $user->photo->file);
+            unlink(public_path('images/userimg/') . $user->photo->file);
             $user->photo->delete();
         }
         $user->delete();
-        $user->roles()->detach();
 
         Session::flash('deleted_user', 'The user is deleted');
         return redirect('admin/users');

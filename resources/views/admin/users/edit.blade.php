@@ -35,12 +35,12 @@
                                 <label class="input-group-text"><i class="fas fa-tags"></i></label>
                             </div>
                             <select name="role_id" class="custom-select">
-                                <option value="" disabled selected>Select a role</option>
+                                <option value="" disabled>Select a role</option>
                                 @foreach($roles as $role)
                                     @if($user->role_id == $role->id)
                                     <option selected value="{{$role->id}}">{{$role->name}}</option>
                                     @else
-                                    <option value="{{$role->id}}">{{$role->name}}</option>
+                                    <option  value="{{$role->id}}">{{$role->name}}</option>
                                     @endif
                                 @endforeach
                             </select>

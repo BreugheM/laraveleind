@@ -213,7 +213,7 @@
                                     momenteel"}}"
                                          class="card-img-top" alt="...">
                                     <div class="card-body d-flex flex-column justify-content-center">
-                                        <a href="{{--{{route("product/" . $product->id)}}--}}">
+                                        <a href="{{route("home.product" , $product->name)}}">
                                             <h4 class="card-title">{{$product->name}}</h4>
                                         </a>
 

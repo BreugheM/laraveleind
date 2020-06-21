@@ -549,6 +549,9 @@ body{
         background-color: #fff;
         .col-lg-8{
             .row{
+                form{
+
+                }
                 .form-group{
                     input{
                         width: 90%;
@@ -613,9 +616,12 @@ body{
                     font-weight: bold;
                     font-size: 24px;
                 }
-                #addbtn{
-                    font-size: 15px;
+                a{
+                    #addbtn{
+                        font-size: 15px;
+                    }
                 }
+
             }
         }
     }
@@ -630,8 +636,15 @@ body{
                 .row{
                     #voeterItems{
                         ul{
+                            a{
+                                .list-group-item{
+                                    font-size: 0.8rem;
+                                    color: white;
+                                }
+                            }
                             .zwartebg{
                                 font-size: 0.8rem;
+                                color: white;
                             }
                         }
                     }

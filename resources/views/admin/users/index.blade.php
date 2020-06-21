@@ -43,9 +43,8 @@
                         </td>
                         <td>{{$user->email}}</td>
                         <td>
-                            @foreach($user->roles as $role)
-                                <span class="badge badge-pill badge-info">{{$role->name}}</span>
-                            @endforeach
+
+                                <span class="badge badge-pill badge-info">{{$user->role->name}}</span>
                         </td>
                         <td>
                             @if($user->is_active != null)

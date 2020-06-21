@@ -510,14 +510,20 @@ body {
     font-size: 24px;
   }
 
-  #productpage .row .col-3 #addbtn {
+  #productpage .row .col-3 a #addbtn {
     font-size: 15px;
   }
 }
 
 @media (min-width: 768px) {
+  #voeter .row .col-lg-10 .row #voeterItems ul a .list-group-item {
+    font-size: 0.8rem;
+    color: white;
+  }
+
   #voeter .row .col-lg-10 .row #voeterItems ul .zwartebg {
     font-size: 0.8rem;
+    color: white;
   }
 
   #productpage .row .col-3 a #backbtn {
