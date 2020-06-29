@@ -8,6 +8,7 @@ use App\Discount;
 use App\Product;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminDiscountsController extends Controller
 {
@@ -19,12 +20,13 @@ class AdminDiscountsController extends Controller
     public function index()
     {
         //
+        $user = Auth::user();
         $users = User::all();
         $brands = Brand::all();
         $products = Product::all();
         $categories = Category::all();
         $discounts = Discount::all();
-        return view('admin.discounts.index', compact('discounts','users','brands','products','categories'));
+        return view('admin.discounts.index', compact('discounts','users','brands','products','categories','user'));
     }
 
     /**
@@ -35,11 +37,12 @@ class AdminDiscountsController extends Controller
     public function create()
     {
         //
+        $user = Auth::user();
         $users = User::all();
         $brands = Brand::all();
         $products = Product::all();
         $categories = Category::all();
-        return view('admin.discounts.create',compact('users','brands','products','categories'));
+        return view('admin.discounts.create',compact('users','brands','products','categories','user'));
     }
 
     /**
@@ -75,11 +78,12 @@ class AdminDiscountsController extends Controller
     public function edit(Discount $discount)
     {
         //
+        $user = Auth::user();
         $users = User::all();
         $brands = Brand::all();
         $products = Product::all();
         $categories = Category::all();
-        return view('admin.discounts.edit', compact('discount','users','brands','products','categories'));
+        return view('admin.discounts.edit', compact('discount','users','brands','products','categories','user'));
     }
 
     /**

@@ -67,7 +67,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2>Levering</h2>
+                    {{--<h2>Levering</h2>
                     <table class="table">
                         <thead class="thead-dark">
                         <tr>
@@ -92,7 +92,7 @@
                         </tr>
 
                         </tbody>
-                    </table>
+                    </table>--}}
                     <textarea name="remarks" id="remarks" cols="30" rows="5" placeholder="Eventuele bestelopmerkingen" class="w-100"></textarea>
 
 
@@ -165,7 +165,7 @@
                             </li>
                             <li class="d-flex">
                                 <p>Levering</p>
-                                <p class="ml-auto">$5</p>
+                                <p class="ml-auto">$0</p>
                             </li>
                             <li id="totaalBedrag" class="d-flex">
                                 <p class="my-3">Total</p>

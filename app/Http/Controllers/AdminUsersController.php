@@ -9,6 +9,7 @@ use App\Product;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
@@ -39,12 +40,13 @@ class AdminUsersController extends Controller
     public function create()
     {
         //
+        $user = Auth::user();
         $users = User::all();
         $brands = Brand::all();
         $products = Product::all();
         $categories = Category::all();
         $roles = Role::all();
-        return view('admin.users.create', compact('roles','users','brands','products','categories'));
+        return view('admin.users.create', compact('roles','users','brands','products','categories','user'));
     }
 
     /**
@@ -99,12 +101,13 @@ class AdminUsersController extends Controller
     public function edit(User $user)
     {
         //
+        $userr = Auth::user();
         $users = User::all();
         $brands = Brand::all();
         $products = Product::all();
         $categories = Category::all();
         $roles = Role::all();
-        return view ('admin.users.edit', compact('user', 'roles','users','brands','products','categories'));
+        return view ('admin.users.edit', compact('user', 'roles','users','brands','products','categories','userr'));
     }
 
     /**

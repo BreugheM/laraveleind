@@ -4,6 +4,7 @@ use App\Brand;
 use App\Category;
 use App\Product;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,11 +44,12 @@ Route::get('/payments/cancelled', 'PaymentController@cancelled')->name('cancelle
 //backend
 Route::group(['middleware' =>'admin'], function(){
     Route::get('/admin', function(){
+        $user = Auth::user();
         $users = User::all();
         $brands = Brand::all();
         $products = Product::all();
         $categories = Category::all();
-        return view('admin.index',compact('users','brands','products','categories'));
+        return view('admin.index',compact('users','brands','products','categories','user'));
     });
 
     Route::resource('admin/users', 'AdminUsersController');

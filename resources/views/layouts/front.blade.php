@@ -170,6 +170,7 @@
 </section>
 
 {{--<script type="text/javascript" src="app.js"></script>--}}
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="{{asset('js/front-app.js')}}"></script>
 
 @stack('scripts')

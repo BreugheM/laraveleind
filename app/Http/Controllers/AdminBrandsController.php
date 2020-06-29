@@ -7,6 +7,7 @@ use App\Category;
 use App\Product;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminBrandsController extends Controller
 {
@@ -18,11 +19,12 @@ class AdminBrandsController extends Controller
     public function index()
     {
         //
+        $user = Auth::user();
         $users = User::all();
         $brands = Brand::all();
         $products = Product::all();
         $categories = Category::all();
-        return view('admin.brands.index', compact('brands','users','products','categories'));
+        return view('admin.brands.index', compact('brands','users','products','categories','user'));
     }
 
     /**
@@ -33,11 +35,12 @@ class AdminBrandsController extends Controller
     public function create()
     {
         //
+        $user = Auth::user();
         $users = User::all();
         $brands = Brand::all();
         $products = Product::all();
         $categories = Category::all();
-        return view('admin.brands.create', compact('users','brands','products','categories'));
+        return view('admin.brands.create', compact('users','brands','products','categories','user'));
     }
 
     /**
@@ -72,11 +75,12 @@ class AdminBrandsController extends Controller
      */
     public function edit(Brand $brand)
     {
+        $user = Auth::user();
         $users = User::all();
         $brands = Brand::all();
         $products = Product::all();
         $categories = Category::all();
-        return view('admin.brands.edit', compact('brand','users','brands','products','categories'));
+        return view('admin.brands.edit', compact('brand','users','brands','products','categories','user'));
     }
 
     /**

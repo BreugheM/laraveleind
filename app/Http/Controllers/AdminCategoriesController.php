@@ -7,6 +7,7 @@ use App\Category;
 use App\Product;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminCategoriesController extends Controller
 {
@@ -18,11 +19,12 @@ class AdminCategoriesController extends Controller
     public function index()
     {
         //
+        $user = Auth::user();
         $users = User::all();
         $brands = Brand::all();
         $products = Product::all();
         $categories = Category::all();
-        return view('admin.categories.index', compact('users','brands','products','categories'));
+        return view('admin.categories.index', compact('users','brands','products','categories','user'));
     }
 
     /**
@@ -33,11 +35,12 @@ class AdminCategoriesController extends Controller
     public function create()
     {
         //
+        $user = Auth::user();
         $users = User::all();
         $brands = Brand::all();
         $products = Product::all();
         $categories = Category::all();
-        return view('admin.categories.create',compact('users','brands','products','categories'));
+        return view('admin.categories.create',compact('users','brands','products','categories','user'));
     }
 
     /**
@@ -73,11 +76,12 @@ class AdminCategoriesController extends Controller
     public function edit(Category $category)
     {
         //
+        $user = Auth::user();
         $users = User::all();
         $brands = Brand::all();
         $products = Product::all();
         $categories = Category::all();
-        return view('admin.categories.edit', compact('category','users','brands','products','categories'));
+        return view('admin.categories.edit', compact('category','users','brands','products','categories','user'));
     }
 
     /**

@@ -50,7 +50,7 @@
                         <td>{{$user->email}}</td>
                         <td>
 
-                                <span class="badge badge-pill badge-info">{{$user->role->name}}</span>
+                                <span class="badge badge-pill badge-info">{{$user->role ? $user->role->name : 'geen rol'}}</span>
                         </td>
                         <td>
                             @if($user->is_active != null)
