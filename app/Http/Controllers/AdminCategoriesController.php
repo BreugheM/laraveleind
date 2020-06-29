@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
 use App\Category;
+use App\Product;
+use App\User;
 use Illuminate\Http\Request;
 
 class AdminCategoriesController extends Controller
@@ -15,8 +18,11 @@ class AdminCategoriesController extends Controller
     public function index()
     {
         //
+        $users = User::all();
+        $brands = Brand::all();
+        $products = Product::all();
         $categories = Category::all();
-        return view('admin.categories.index', compact('categories'));
+        return view('admin.categories.index', compact('users','brands','products','categories'));
     }
 
     /**
@@ -27,7 +33,11 @@ class AdminCategoriesController extends Controller
     public function create()
     {
         //
-        return view('admin.categories.create');
+        $users = User::all();
+        $brands = Brand::all();
+        $products = Product::all();
+        $categories = Category::all();
+        return view('admin.categories.create',compact('users','brands','products','categories'));
     }
 
     /**
@@ -63,7 +73,11 @@ class AdminCategoriesController extends Controller
     public function edit(Category $category)
     {
         //
-        return view('admin.categories.edit', compact('category'));
+        $users = User::all();
+        $brands = Brand::all();
+        $products = Product::all();
+        $categories = Category::all();
+        return view('admin.categories.edit', compact('category','users','brands','products','categories'));
     }
 
     /**

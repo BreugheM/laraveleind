@@ -9,14 +9,13 @@
 
                 <div id="list1" class="list-group list-group-horizontal d-flex flex-column flex-md-row justify-content-between ">
                     <div class="d-flex">
-                        <div class="list-group-item">Top Sales</div>
                         <a href="{{route('shop')}}">
                             <div class="list-group-item">Shop</div>
                         </a>
                     </div>
                     <div class="d-flex">
                         <div class="list-group-item">Reviews</div>
-                        <a href="contact.html">
+                        <a href="{{route('contact')}}">
                             <div class="list-group-item">Contact</div>
                         </a>
                     </div>
@@ -50,7 +49,7 @@
                         <h5 class="slidertitel mr-auto w-50 mb-xl-5">iPhone 6 32Gb Black</h5>
                         <p class="slidertext mr-auto w-50 d-none d-lg-block">At first, for some time, I was not able to answer him one word; but as he had
                             taken me in his arms I held fast by him, or I should have fallen to the ground.</p>
-                        <button class="btncaroussel mb-lg-4">Buy now </button>
+                        <button class="btncaroussel mb-lg-4">Shop now </button>
                     </div>
                 </div>
                 <div class="carousel-item ">
@@ -59,7 +58,7 @@
                         <h5 class="slidertitel mr-auto w-50 mb-xl-5">iPhone 6 32Gb Black</h5>
                         <p class="slidertext mr-auto w-50 d-none d-lg-block">At first, for some time, I was not able to answer him one word; but as he had
                             taken me in his arms I held fast by him, or I should have fallen to the ground.</p>
-                        <button class="btncaroussel mb-lg-4">Buy now </button>
+                        <button class="btncaroussel mb-lg-4">Shop now </button>
                     </div>
                 </div>
                 <div class="carousel-item ">
@@ -68,7 +67,7 @@
                         <h5 class="slidertitel mr-auto w-50 mb-xl-5">iPhone 6 32Gb Black</h5>
                         <p class="slidertext mr-auto w-50 d-none d-lg-block">At first, for some time, I was not able to answer him one word; but as he had
                             taken me in his arms I held fast by him, or I should have fallen to the ground.</p>
-                        <button class="btncaroussel mb-lg-4">Buy now </button>
+                        <button class="btncaroussel mb-lg-4">Shop now </button>
                     </div>
                 </div>
             </div>
@@ -85,7 +84,7 @@
     <section id="homeSectie4" class="container-fluid">
         <div class="row">
             <div class="col-10 offset-1">
-                <header id="titelTS" class="d-flex justify-content-center my-4 my-lg-5 bg-white mx-auto rounded-pill ">
+                {{--<header id="titelTS" class="d-flex justify-content-center my-4 my-lg-5 bg-white mx-auto rounded-pill ">
                     <h2 class="m-0">TOP SALES</h2>
                 </header>
                 <div class="row my-3">
@@ -94,7 +93,7 @@
                     </div>
                     <div class="col-lg-6 mb-2">
                         <a href="product.html" class="d-flex justify-content-center"><img class="img-fluid " src="images/Box.png" alt=""></a>
-                    </div>
+                    </div>--}}
                     <!--                <div class="col-lg-6 my-3 my-lg-0">-->
                     <!--                    &lt;!&ndash;<img class="img-fluid " src="img/Box.png" alt="">&ndash;&gt;-->
                     <!--                    <div class="box1"> <img src="img/Box.png" alt="">-->
@@ -115,7 +114,7 @@
     <section id="homeSectie5" class="container-fluid">
         <div class="row">
             <article class="col-10 offset-1 d-flex justify-content-center my-4">
-                <button id="btn2" class="rounded-pill py-2">SHOP NOW</button>
+                <a href="{{route('shop')}}" id="btn2" class="btn rounded-pill mt-2 py-2">SHOP NOW</a>
             </article>
         </div>
     </section>

@@ -10,7 +10,7 @@ use Illuminate\Queue\SerializesModels;
 class Contact extends Mailable
 {
     use Queueable, SerializesModels;
-
+    public $data;
     /**
      * Create a new message instance.
      *
@@ -18,6 +18,7 @@ class Contact extends Mailable
      */
     public function __construct($data)
     {
+        //
         $this->data = $data;
     }
 

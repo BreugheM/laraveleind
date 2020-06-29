@@ -9,14 +9,13 @@
 
                 <div id="list1" class="list-group list-group-horizontal d-flex flex-column flex-md-row justify-content-between ">
                     <div class="d-flex">
-                        <div class="list-group-item">Top Sales</div>
                         <a href="{{route('shop')}}">
                             <div class="list-group-item">Shop</div>
                         </a>
                     </div>
                     <div class="d-flex">
                         <div class="list-group-item">Reviews</div>
-                        <a href="contact.html">
+                        <a href="{{route('contact')}}">
                             <div class="list-group-item">Contact</div>
                         </a>
                     </div>
@@ -50,7 +49,7 @@
                         <h5 class="slidertitel mr-auto w-50 mb-xl-5">iPhone 6 32Gb Black</h5>
                         <p class="slidertext mr-auto w-50 d-none d-lg-block">At first, for some time, I was not able to answer him one word; but as he had
                             taken me in his arms I held fast by him, or I should have fallen to the ground.</p>
-                        <button class="btncaroussel mb-lg-4">Buy now </button>
+                        <button class="btncaroussel mb-lg-4">Shop now </button>
                     </div>
                 </div>
                 <div class="carousel-item ">
@@ -59,7 +58,7 @@
                         <h5 class="slidertitel mr-auto w-50 mb-xl-5">iPhone 6 32Gb Black</h5>
                         <p class="slidertext mr-auto w-50 d-none d-lg-block">At first, for some time, I was not able to answer him one word; but as he had
                             taken me in his arms I held fast by him, or I should have fallen to the ground.</p>
-                        <button class="btncaroussel mb-lg-4">Buy now </button>
+                        <button class="btncaroussel mb-lg-4">Shop now </button>
                     </div>
                 </div>
                 <div class="carousel-item ">
@@ -68,7 +67,7 @@
                         <h5 class="slidertitel mr-auto w-50 mb-xl-5">iPhone 6 32Gb Black</h5>
                         <p class="slidertext mr-auto w-50 d-none d-lg-block">At first, for some time, I was not able to answer him one word; but as he had
                             taken me in his arms I held fast by him, or I should have fallen to the ground.</p>
-                        <button class="btncaroussel mb-lg-4">Buy now </button>
+                        <button class="btncaroussel mb-lg-4">Shop now </button>
                     </div>
                 </div>
             </div>
@@ -82,7 +81,7 @@
             </a>
         </div>
     </section>
-    <section id="sorted" class="container-fluid ">
+   {{-- <section id="sorted" class="container-fluid ">
         <div id="sortedrow" class="row">
             <div class="col-10 offset-1 my-3 bg-white">
                 <article class="row">
@@ -110,28 +109,13 @@
                 </article>
             </div>
         </div>
-    </section>
-    <section id="shopcenter" class="container-fluid">
+    </section>--}}
+    <section id="shopcenter" class="container-fluid mt-5">
         <div class="row">
             <div class="col-lg-10 offset-lg-1 p-0">
                 <div class="row">
                     <div class="col-3 pr-0">
                         <div id="accordion" class="mb-4">
-                            <div class="card">
-                                <div class="card-header p-0" id="headingOne">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Top Sales
-                                        </button>
-                                    </h5>
-                                </div>
-
-                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                                    <div class="card-body">
-                                        <p class="cardTekst">Anim</p>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="card">
                                 <div class="card-header p-0" id="headingTwo">
                                     <h5 class="mb-0">
@@ -167,7 +151,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card">
+                            {{--<div class="card">
                                 <div class="card-header p-0" id="headingFour">
                                     <h5 class="mb-0">
                                         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
@@ -181,11 +165,11 @@
                                         <p class="cardTekst">Anim</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div>--}}
 
                         </div>
 
-                        <div id="checkList" class="py-2">
+                        {{--<div id="checkList" class="py-2">
                             <h4 class="m-0 pb-3">condition</h4>
                             <div class="d-flex align-items-center">
                                 <input class="ml-1" type="checkbox">
@@ -200,7 +184,7 @@
                                 <p class="m-0 ml-2">For parts</p>
                             </div>
 
-                        </div>
+                        </div>--}}
 
 
                     </div>
@@ -219,7 +203,7 @@
 
                                         <h5 class="d-flex justify-content-center">€ {{$product->price}} </h5>
                                         <p class="card-text">{{$product->description}}.</p>
-                                        <a href="{{route('addToCart', $product->id)}}" class="btn btn-primary"><b>BUY</b></a>
+                                        <a href="{{route('addToCart', $product->id)}}" class="btn btn-primary"><b>Add to cart</b></a>
                                     </div>
                                 </div>
                             </div>

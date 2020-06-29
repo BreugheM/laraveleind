@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             'name'=>'Michiel',
             'email'=>'michiel-breughe@hotmail.com',
             'photo_id'=>1,
-           // 'role_id'=>1,
+            'role_id'=>1,
             'password'=>bcrypt(12345678)]);
     }
 }

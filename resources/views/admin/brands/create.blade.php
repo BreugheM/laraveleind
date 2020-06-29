@@ -8,6 +8,7 @@
     </div>
     <hr>
     <div class="col-12">
+        @include('includes.form_error')
         <form method="POST" action="{{action('AdminBrandsController@store')}}" enctype="multipart/form-data">
             @csrf
             @method('POST')

@@ -8,6 +8,7 @@
     </div>
     <hr>
     <div class="col-12">
+        @include('includes.form_error')
         <form method="POST" action="{{action('AdminUsersController@store')}}" enctype="multipart/form-data">
             @csrf
             @method('POST')
@@ -24,7 +25,7 @@
                     <div class="form-group">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <div class="input-group-text"><i class="fab fa-product-hunt"></i></div>
+                                <div class="input-group-text"><i class="fas fa-mail-bulk"></i></div>
                             </div>
                             <input type="text" class="form-control" name="email" placeholder="Email">
                         </div>

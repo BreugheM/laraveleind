@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PhotoSeeder::class);
         $this->call(ProductSeeder::class);
         $this->call(RoleSeeder::class);
+        $this->call(PaymentPlatformsTableSeeder::class);
+        $this->call(CurrenciesTableSeeder::class);
     }
 }

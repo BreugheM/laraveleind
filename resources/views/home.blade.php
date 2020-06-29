@@ -14,7 +14,9 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                        <a href="{{route('index')}}" class="btn btn-primary btn-lg d-flex justify-content-center">You are logged in!
+                            return to site</a>
+
                 </div>
             </div>
         </div>

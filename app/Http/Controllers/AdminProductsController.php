@@ -6,7 +6,9 @@ use App\Brand;
 use App\Category;
 use App\Photo;
 use App\Product;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class AdminProductsController extends Controller
@@ -19,9 +21,12 @@ class AdminProductsController extends Controller
     public function index()
     {
         //
+
+        $users = User::all();
         $brands = Brand::all();
+        $categories = Category::all();
         $products = Product::with(['category','brand','photo'])->get();
-        return view('admin.products.index', compact('products', 'brands'));
+        return view('admin.products.index', compact('products', 'brands','users','categories'));
     }
 
     /**
@@ -32,9 +37,11 @@ class AdminProductsController extends Controller
     public function create()
     {
         //
+        $users = User::all();
+        $products = Product::all();
         $categories = Category::select('name','id')->get();
         $brands = Brand::select('name','id')->get();
-        return view('admin.products.create', compact('brands', 'categories'));
+        return view('admin.products.create', compact('brands', 'categories','users','products'));
     }
 
     /**
@@ -79,10 +86,12 @@ class AdminProductsController extends Controller
     public function edit($id)
     {
         //
+        $users = User::all();
+        $products = Product::all();
         $product = Product::findOrFail($id);
         $categories = Category::select('name','id')->get();
         $brands = Brand::select('name','id')->get();
-        return view('admin.products.edit', compact('product', 'categories','brands'));
+        return view('admin.products.edit', compact('product', 'categories','brands','users','products'));
     }
 
     /**
@@ -129,13 +138,15 @@ class AdminProductsController extends Controller
         return redirect('/admin/products');
     }
     public function productsPerBrand($id){
+        $user = Auth::user();
         $brands = Brand::all();
         $products = Product::with(['category','brand','photo'])->where('brand_id', '=', $id)->get();
-        return view('admin.products.index', compact('products', 'brands'));
+        return view('admin.products.index', compact('products', 'brands','user'));
     }
     public function product($slug){
+        $user = Auth::user();
         $product = Product::where('name', $slug)->first();
         //$comments = $post->comments()->whereIsActive(1)->get();
-        return view('product', compact('product'));
+        return view('product', compact('product','user'));
     }
 }

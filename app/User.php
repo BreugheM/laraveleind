@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -41,5 +42,18 @@ class User extends Authenticatable
     }
     public function photo(){
         return $this->belongsTo('App\Photo');
+    }
+
+
+
+    //bijkomende functies
+    public function isAdmin(){
+        $user = Auth::user();
+            if($user->role_id == 1 && $this->deleted_at == null){
+                return true;
+            }
+
+
+
     }
 }

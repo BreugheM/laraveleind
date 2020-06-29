@@ -9,14 +9,13 @@
 
                 <div id="list1" class="list-group list-group-horizontal d-flex flex-column flex-md-row justify-content-between ">
                     <div class="d-flex">
-                        <div class="list-group-item">Top Sales</div>
                         <a href="{{route('shop')}}">
                             <div class="list-group-item">Shop</div>
                         </a>
                     </div>
                     <div class="d-flex">
                         <div class="list-group-item">Reviews</div>
-                        <a href="contact.html">
+                        <a href="{{route('contact')}}">
                             <div class="list-group-item">Contact</div>
                         </a>
                     </div>
@@ -86,20 +85,21 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-6 form-group">
-                            <label for="name">Your name</label>
-                            <input type="text" id="name" placeholder="Your name" class="form-control">
+                            <label for="contact-name">Your name</label>
+                            <input type="text" id="contact-name" name="name" placeholder="Your name" class="form-control">
                         </div>
                         <div class="col-md-6 form-group">
-                            <label for="email">email</label>
-                            <input type="email" id="email" placeholder="email" class="form-control">
+                            <label for="contact-email">email</label>
+                            <input type="email" id="contact-email" placeholder="email" name="email" class="form-control" required>
                         </div>
-                        <div class="form-group col-12">
+                        {{--<div class="form-group col-12">
                             <label for="subject">Subject</label>
                             <input type="text" placeholder="subject" class="form-control" id="subject">
-                        </div>
+                        </div>--}}
                         <div class="form-group col-12">
                             <label for="message">Message</label>
-                            <textarea rows="3" placeholder="Put your message here" class="form-control" id="message"></textarea>
+                            <textarea rows="3" placeholder="Put your message here" class="form-control" name="message"
+                                      id="message"></textarea>
                         </div>
                         <div id="btnContact" class="col-12 mt-3 mb-5">
                             <button type="submit" id="btnSend">Send message</button>

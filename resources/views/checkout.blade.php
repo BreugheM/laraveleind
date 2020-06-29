@@ -93,32 +93,6 @@
 
                         </tbody>
                     </table>
-                    <h2>Betaalmethode</h2>
-                    <table class="table">
-                        <thead class="thead-dark">
-                        <tr>
-                            <th scope="col"></th>
-                            <th scope="col">Methode</th>
-
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">
-                                <input type="radio" class="mr-3"> Paypal
-                            </th>
-                            <td><i class="fab fa-cc-paypal fa-3x"></i></td>
-
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                <input type="radio" class="mr-3"> Creditcard
-                            </th>
-                            <td><i class="fab fa-cc-visa fa-3x mr-1"></i><i class="fab fa-cc-mastercard fa-3x"></i></td>
-                        </tr>
-
-                        </tbody>
-                    </table>
                     <textarea name="remarks" id="remarks" cols="30" rows="5" placeholder="Eventuele bestelopmerkingen" class="w-100"></textarea>
 
 
@@ -210,9 +184,12 @@
                 <div class="d-flex">
 
                     <a class="btn btn-primary my-auto w-50" id="backToShop" href="{{route('shop')}}">Verder winkelen</a>
-                    <button id="bestelKnop" class="mx-auto d-block py-2 my-3 w-50">
-                        Bestel
-                    </button>
+                    <a href="{{route('payment')}}" id="bestelKnop" class="btn btn-primary my-auto w-50"><p class="mx-auto m-0
+                    w-50">
+                            Naar betalen
+                        </p>
+
+                    </a>
                 </div>
 
                 @endif

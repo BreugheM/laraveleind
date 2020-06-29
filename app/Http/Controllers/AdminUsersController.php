@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
+use App\Category;
 use App\Photo;
+use App\Product;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
@@ -21,9 +24,11 @@ class AdminUsersController extends Controller
         //
 
         //$roles = Role::all();
-
+        $brands = Brand::all();
+        $products = Product::all();
+        $categories = Category::all();
         $users = User::paginate(8);
-        return view('admin.users.index', compact('users'));
+        return view('admin.users.index', compact('users','brands','products','categories'));
     }
 
     /**
@@ -34,8 +39,12 @@ class AdminUsersController extends Controller
     public function create()
     {
         //
+        $users = User::all();
+        $brands = Brand::all();
+        $products = Product::all();
+        $categories = Category::all();
         $roles = Role::all();
-        return view('admin.users.create', compact('roles'));
+        return view('admin.users.create', compact('roles','users','brands','products','categories'));
     }
 
     /**
@@ -90,8 +99,12 @@ class AdminUsersController extends Controller
     public function edit(User $user)
     {
         //
+        $users = User::all();
+        $brands = Brand::all();
+        $products = Product::all();
+        $categories = Category::all();
         $roles = Role::all();
-        return view ('admin.users.edit', compact('user', 'roles'));
+        return view ('admin.users.edit', compact('user', 'roles','users','brands','products','categories'));
     }
 
     /**
@@ -114,13 +127,13 @@ class AdminUsersController extends Controller
 
         if($file = $request->file('photo_id')){
             $name = time() . $file->getClientOriginalName();
-            $file->move('images', $name);
+            $file->move('images/userimg', $name);
             $photo = Photo::create(['file'=>$name]);
             $input['photo_id'] = $photo->id;
         }
         //$input['password'] = Hash::make($request['password']);
         $user->update($input);
-        $user->roles()->sync($request->roles, true);
+        $user->role()->associate($request->role);
         return redirect('admin/users');
     }
 

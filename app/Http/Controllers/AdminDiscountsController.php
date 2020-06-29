@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
+use App\Category;
 use App\Discount;
+use App\Product;
+use App\User;
 use Illuminate\Http\Request;
 
 class AdminDiscountsController extends Controller
@@ -15,8 +19,12 @@ class AdminDiscountsController extends Controller
     public function index()
     {
         //
+        $users = User::all();
+        $brands = Brand::all();
+        $products = Product::all();
+        $categories = Category::all();
         $discounts = Discount::all();
-        return view('admin.discounts.index', compact('discounts'));
+        return view('admin.discounts.index', compact('discounts','users','brands','products','categories'));
     }
 
     /**
@@ -27,7 +35,11 @@ class AdminDiscountsController extends Controller
     public function create()
     {
         //
-        return view('admin.discounts.create');
+        $users = User::all();
+        $brands = Brand::all();
+        $products = Product::all();
+        $categories = Category::all();
+        return view('admin.discounts.create',compact('users','brands','products','categories'));
     }
 
     /**
@@ -63,7 +75,11 @@ class AdminDiscountsController extends Controller
     public function edit(Discount $discount)
     {
         //
-        return view('admin.discounts.edit', compact('discount'));
+        $users = User::all();
+        $brands = Brand::all();
+        $products = Product::all();
+        $categories = Category::all();
+        return view('admin.discounts.edit', compact('discount','users','brands','products','categories'));
     }
 
     /**

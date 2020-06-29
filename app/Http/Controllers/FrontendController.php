@@ -5,29 +5,36 @@ namespace App\Http\Controllers;
 use App\Brand;
 use App\Cart;
 use App\Category;
+use App\Currency;
+use App\PaymentPlatform;
 use App\Product;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class FrontendController extends Controller
 {
     //
     public function index(){
+        $user = Auth::user();
         $brands = Brand::all();
         $products = Product::with(['brand','photo'])->get();
-        return view('index',compact('products','brands'));
+        return view('index',compact('products','brands', 'user'));
     }
     public function productsPerBrand($id){
+        $user = Auth::user();
         $brands = Brand::all();
         $categories = Category::all();
         $products = Product::with(['brand','photo'])->where('brand_id', '=', $id)->get();
-        return view('shop', compact('products', 'brands', 'categories'));
+        return view('shop', compact('products', 'brands', 'categories','user'));
     }
     public function productsPerCategory($id){
+        $user = Auth::user();
         $categories = Category::all();
         $brands = Brand::all();
         $products = Product::with(['category','photo'])->where('category_id', '=', $id)->get();
-        return view('shop', compact('products', 'categories', 'brands'));
+        return view('shop', compact('products', 'categories', 'brands','user'));
     }
 
     public function addToCart($id){
@@ -45,10 +52,11 @@ class FrontendController extends Controller
         if(!Session::has('cart')){
             return redirect('/');
         }else{
+            $user = Auth::user();
             $currentCart = Session::has('cart') ? Session::get('cart') : null;
             $cart = new Cart($currentCart);
             $cart = $cart->products;
-            return view('checkout', compact('cart'));
+            return view('checkout', compact('cart','user'));
         }
     }
     public function updateQuantity(Request $request){
@@ -70,9 +78,17 @@ class FrontendController extends Controller
         return redirect('/checkout');
     }
     public function shop(){
+        $user = Auth::user();
         $brands = Brand::all();
         $categories = Category::all();
         $products = Product::with(['brand','photo'])->get();
-        return view('shop',compact('products','categories', 'brands'));
+        return view('shop',compact('products','categories', 'brands','user'));
+    }
+    public function payment()
+    {
+        $user = Auth::user();
+        $currencies = Currency::all();
+        $paymentPlatforms = PaymentPlatform::all();
+        return view('payment',compact('user'))->with(['currencies' => $currencies, 'paymentPlatforms'=> $paymentPlatforms]);
     }
 }

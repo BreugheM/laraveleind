@@ -28,25 +28,7 @@
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Devices</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Delivery & Payment</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Guarantee</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
-                        </li>
-
-                    </ul>
+                <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
                     <a href="{{route('checkout')}}">
                         <span class="fa-2x" data-count="">
 
@@ -64,14 +46,84 @@
                                    aria-describedby="button-addon1">
                         </div>
                     </form>
-                    <button id="btn1" class="px-3 mx-lg-4">sign in</button>
+
+                    @if (Auth::guest())
+                        <a href="{{route('home')}}" id="btn1" class="btn btn-outline-dark px-3 mx-lg-4">sign in</a>
+                    @elseif($user->role->name == 'Administrator')
+                        <div class="dropdown ml-3">
+                            <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                <img class="rounded-circle " height="25"  src="{{$user->photo ? asset('/images/userimg/' .
+                                $user->photo->file) :
+                                "http:/placehold
+                            .it/62x62"}}" alt="">
+                                {{$user->name}}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="{{'admin'}}">Go to admin page</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </div>
+                        @else
+                        <div class="dropdown ml-3">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="rounded-circle " height="25"  src="{{$user->photo ? asset('/images/userimg/' .
+                                $user->photo->file) :
+                                "http:/placehold
+                            .it/62x62"}}" alt="">
+                                {{$user->name}}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </nav>
         </div>
     </div>
 
 </section>
-@yield('content')
+<main>
+    @if(isset($errors) && $errors->any())
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+            {{ session('status') }}
+        </div>
+    @endif
+    @if(session()->has('success'))
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach(session()->get('success') as $message)
+                    <li>{{$message}}</li>
+                @endforeach
+            </ul>
+            {{ session('status') }}
+        </div>
+    @endif
+    @yield('content')
+</main>
+
 
 <section id="voeter" class="container-fluid">
     <div class="row py-5">
@@ -83,15 +135,13 @@
                 <div id="voeterItems" class="col-lg-4">
                     <ul class="list-group list-group-horizontal d-flex justify-content-around">
 
-                        <a href="{{route('home')}}">
+                        <a href="{{route('index')}}">
                             <li class="list-group-item zwartebg" style="color: white">HOME</li>
                         </a>
                         <a href="{{route('shop')}}" style="color: white">
                             <li class="list-group-item zwartebg">SHOP</li>
                         </a>
 
-                        <li class="list-group-item zwartebg">TEAM</li>
-                        <li class="list-group-item zwartebg">ABOUT US</li>
                         <a href="{{route('contact')}}" style="color: white">
                             <li class="list-group-item zwartebg">CONTACT</li>
                         </a>
@@ -122,7 +172,7 @@
 {{--<script type="text/javascript" src="app.js"></script>--}}
 <script src="{{asset('js/front-app.js')}}"></script>
 
-
+@stack('scripts')
 
 </body>
 </html>

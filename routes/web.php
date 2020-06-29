@@ -1,5 +1,9 @@
 <?php
 
+use App\Brand;
+use App\Category;
+use App\Product;
+use App\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,17 +35,28 @@ Route::get('/removeItem/{id}', 'FrontendController@removeItem')->name('removeIte
 Route::get('/product/{name}', 'AdminProductsController@product')->name('home.product');
 Route::get('/contact', 'ContactController@create')->name('contact');
 Route::post('/contact','ContactController@store');
+Route::get('/payment', 'FrontendController@payment')->name('payment');
+Route::post('/payments/pay', 'PaymentController@pay')->name('pay');
+Route::get('/payments/approval', 'PaymentController@approval')->name('approval');
+Route::get('/payments/cancelled', 'PaymentController@cancelled')->name('cancelled');
 
 //backend
-Route::get('/admin', function(){
-    return view('admin.index');
+Route::group(['middleware' =>'admin'], function(){
+    Route::get('/admin', function(){
+        $users = User::all();
+        $brands = Brand::all();
+        $products = Product::all();
+        $categories = Category::all();
+        return view('admin.index',compact('users','brands','products','categories'));
+    });
+
+    Route::resource('admin/users', 'AdminUsersController');
+    Route::resource('admin/brands', 'AdminBrandsController');
+    Route::resource('admin/categories', 'AdminCategoriesController');
+    Route::resource('admin/discounts', 'AdminDiscountsController');
+    Route::resource('admin/products', 'AdminProductsController',['index'=>'admin.products.index']);
+    Route::get('admin/products/brands/{id}','AdminProductsController@productsPerBrand')->name('admin.productsPerBrand');
+    Route::resource('admin/photos', 'AdminPhotosController');
+    Route::resource('admin/roles','AdminRolesController');
 });
 
-Route::resource('admin/users', 'AdminUsersController');
-Route::resource('admin/brands', 'AdminBrandsController');
-Route::resource('admin/categories', 'AdminCategoriesController');
-Route::resource('admin/discounts', 'AdminDiscountsController');
-Route::resource('admin/products', 'AdminProductsController',['index'=>'admin.products.index']);
-Route::get('admin/products/brands/{id}','AdminProductsController@productsPerBrand')->name('admin.productsPerBrand');
-Route::resource('admin/photos', 'AdminPhotosController');
-Route::resource('admin/roles','AdminRolesController');

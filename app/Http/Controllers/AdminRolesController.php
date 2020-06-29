@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
+use App\Category;
+use App\Product;
 use App\Role;
+use App\User;
 use Illuminate\Http\Request;
 
 class AdminRolesController extends Controller
@@ -15,8 +19,12 @@ class AdminRolesController extends Controller
     public function index()
     {
         //
+        $users = User::all();
+        $brands = Brand::all();
+        $products = Product::all();
+        $categories = Category::all();
         $roles = Role::all();
-        return view('admin.roles.index',compact('roles'));
+        return view('admin.roles.index',compact('roles','users','brands','products','categories'));
     }
 
     /**
@@ -27,7 +35,11 @@ class AdminRolesController extends Controller
     public function create()
     {
         //
-        return view('admin.roles.create');
+        $users = User::all();
+        $brands = Brand::all();
+        $products = Product::all();
+        $categories = Category::all();
+        return view('admin.roles.create',compact('users','brands','products','categories'));
     }
 
     /**
@@ -40,7 +52,7 @@ class AdminRolesController extends Controller
     {
         //
         Role::create($request->all());
-        return redirect('admin/roles');
+        return redirect('admin/roles',compact('users','brands','products','categories'));
     }
 
     /**
@@ -63,7 +75,11 @@ class AdminRolesController extends Controller
     public function edit(Role $role)
     {
         //
-        return view('admin.roles.edit', compact('role'));
+        $users = User::all();
+        $brands = Brand::all();
+        $products = Product::all();
+        $categories = Category::all();
+        return view('admin.roles.edit', compact('role','users','brands','products','categories'));
     }
 
     /**

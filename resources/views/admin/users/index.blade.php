@@ -9,7 +9,13 @@
         @endif
     </div>
     <div class="col-12">
-        <h1>All users</h1>
+        <h1 class="text-primary">All users</h1>
+    </div>
+    <div class="col-12">
+        <a href="{{route('users.create')}}" class="btn btn-outline-primary btn-sm border-left-primary my-1">
+            <i class="fas fa-plus-circle"></i>
+            Create User
+        </a>
     </div>
     <div class="col-12">
         <table class="table table-striped">
