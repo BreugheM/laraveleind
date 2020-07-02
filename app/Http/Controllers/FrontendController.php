@@ -8,6 +8,7 @@ use App\Category;
 use App\Currency;
 use App\PaymentPlatform;
 use App\Product;
+use App\Review;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,24 +18,21 @@ class FrontendController extends Controller
 {
     //
     public function index(){
-        $user = Auth::user();
         $brands = Brand::all();
         $products = Product::with(['brand','photo'])->get();
-        return view('index',compact('products','brands', 'user'));
+        return view('index',compact('products','brands'));
     }
     public function productsPerBrand($id){
-        $user = Auth::user();
         $brands = Brand::all();
         $categories = Category::all();
         $products = Product::with(['brand','photo'])->where('brand_id', '=', $id)->get();
-        return view('shop', compact('products', 'brands', 'categories','user'));
+        return view('shop', compact('products', 'brands', 'categories'));
     }
     public function productsPerCategory($id){
-        $user = Auth::user();
         $categories = Category::all();
         $brands = Brand::all();
         $products = Product::with(['category','photo'])->where('category_id', '=', $id)->get();
-        return view('shop', compact('products', 'categories', 'brands','user'));
+        return view('shop', compact('products', 'categories', 'brands'));
     }
 
     public function addToCart($id){
@@ -52,11 +50,10 @@ class FrontendController extends Controller
         if(!Session::has('cart')){
             return redirect('/');
         }else{
-            $user = Auth::user();
             $currentCart = Session::has('cart') ? Session::get('cart') : null;
             $cart = new Cart($currentCart);
             $cart = $cart->products;
-            return view('checkout', compact('cart','user'));
+            return view('checkout', compact('cart'));
         }
     }
     public function updateQuantity(Request $request){
@@ -78,17 +75,18 @@ class FrontendController extends Controller
         return redirect('/checkout');
     }
     public function shop(){
-        $user = Auth::user();
+
+        $reviews = Review::all();
         $brands = Brand::all();
         $categories = Category::all();
         $products = Product::with(['brand','photo'])->get();
-        return view('shop',compact('products','categories', 'brands','user'));
+        return view('shop',compact('products','categories', 'brands'));
     }
     public function payment()
     {
-        $user = Auth::user();
+
         $currencies = Currency::all();
         $paymentPlatforms = PaymentPlatform::all();
-        return view('payment',compact('user'))->with(['currencies' => $currencies, 'paymentPlatforms'=> $paymentPlatforms]);
+        return view('payment')->with(['currencies' => $currencies, 'paymentPlatforms'=> $paymentPlatforms]);
     }
 }

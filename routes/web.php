@@ -40,6 +40,8 @@ Route::get('/payment', 'FrontendController@payment')->name('payment');
 Route::post('/payments/pay', 'PaymentController@pay')->name('pay');
 Route::get('/payments/approval', 'PaymentController@approval')->name('approval');
 Route::get('/payments/cancelled', 'PaymentController@cancelled')->name('cancelled');
+Route::get('/reviews', 'ReviewsController@create')->name('reviews');
+Route::post('/reviews', 'ReviewsController@store');
 
 //backend
 Route::group(['middleware' =>'admin'], function(){
@@ -60,5 +62,7 @@ Route::group(['middleware' =>'admin'], function(){
     Route::get('admin/products/brands/{id}','AdminProductsController@productsPerBrand')->name('admin.productsPerBrand');
     Route::resource('admin/photos', 'AdminPhotosController');
     Route::resource('admin/roles','AdminRolesController');
+    Route::resource('admin/reviews', 'ReviewsController@index');
+    Route::resource('admin/reviews', 'AdminReviewsController');
 });
 

@@ -14,7 +14,10 @@
                         </a>
                     </div>
                     <div class="d-flex">
-                        <div class="list-group-item">Reviews</div>
+                        <a href="{{route('reviews')}}">
+                            <div class="list-group-item">Reviews</div>
+                        </a>
+
                         <a href="{{route('contact')}}">
                             <div class="list-group-item">Contact</div>
                         </a>
@@ -143,7 +146,7 @@
                                     reasoning upon such
                                     abstruse matters.</p>
                             </div>
-                            <div class="col-lg-4 mt-3 mt-lg-0">
+                            <div class="col-lg-4">
                                 <div class="d-flex">
                                     <img class="fotosreviews" src="images/alex.png" alt="">
                                     <div class="ml-1">
@@ -155,7 +158,7 @@
                                     cowered nearer to the fire, and chuckled heartily.
                                 </p>
                             </div>
-                            <div class="col-lg-4 mt-3 mt-lg-0">
+                            <div class="col-lg-4">
                                 <div class="d-flex">
                                     <img class="fotosreviews" src="images/dinge.png" alt="">
                                     <div class="ml-1">

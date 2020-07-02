@@ -49,15 +49,15 @@
 
                     @if (Auth::guest())
                         <a href="{{route('home')}}" id="btn1" class="btn btn-outline-dark px-3 mx-lg-4">sign in</a>
-                    @elseif($user->role->name == 'Administrator')
+                    @elseif(Auth()->user()->role->name == 'Administrator')
                         <div class="dropdown ml-3">
                             <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle " height="25"  src="{{$user->photo ? asset('/images/userimg/' .
-                                $user->photo->file) :
+                                <img class="rounded-circle " height="25"  src="{{Auth()->user()->photo ? asset('/images/userimg/' .
+                                Auth()->user()->photo->file) :
                                 "http:/placehold
                             .it/62x62"}}" alt="">
-                                {{$user->name}}
+                                {{Auth()->user()->name}}
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="{{'admin'}}">Go to admin page</a>
@@ -75,11 +75,11 @@
                         @else
                         <div class="dropdown ml-3">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle " height="25"  src="{{$user->photo ? asset('/images/userimg/' .
-                                $user->photo->file) :
+                                <img class="rounded-circle " height="25"  src="{{Auth()->user()->photo ? asset('/images/userimg/' .
+                                Auth()->user()->photo->file) :
                                 "http:/placehold
                             .it/62x62"}}" alt="">
-                                {{$user->name}}
+                                {{Auth()->user()->name}}
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
