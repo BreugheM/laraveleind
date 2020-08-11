@@ -6,7 +6,7 @@
 <div class="col-lg-4">
     <div class="card">
         <div class="card-header">
-            Reviews
+           <b>Reviews</b>
         </div>
         <div class="card-body">
             <h5 class="card-title">Special title treatment</h5>
