@@ -14,7 +14,9 @@
                         </a>
                     </div>
                     <div class="d-flex">
-                        <div class="list-group-item">Reviews</div>
+                        <a href="{{route('reviews')}}">
+                            <div class="list-group-item">Reviews</div>
+                        </a>
                         <a href="{{route('contact')}}">
                             <div class="list-group-item">Contact</div>
                         </a>

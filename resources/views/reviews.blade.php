@@ -14,7 +14,9 @@
                         </a>
                     </div>
                     <div class="d-flex">
-                        <div class="list-group-item">Reviews</div>
+                        <a href="{{route('reviews')}}">
+                            <div class="list-group-item">Reviews</div>
+                        </a>
                         <a href="{{route('contact')}}">
                             <div class="list-group-item">Contact</div>
                         </a>
@@ -42,18 +44,18 @@
                     @if($reviews)
                     @foreach($reviews as $review)
                     <div class="col-lg-4">
-                        <div class="card mb-2">
+                        <div class="card shadow mb-2">
                             <div class="card-header d-flex justify-content-between ">
                                 {{$review->user->name}}
-                                <form method="POST" action="">
+                                {{--<form method="POST" action="">
                                     @csrf
-                                    @method('DELETE')
+                                    @method('POST')
                                     <div class="form-control">
                                         <button type="submit">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
                                     </div>
-                                </form>
+                                </form>--}}
                             </div>
                             <div class="card-body">
                                 <blockquote class="blockquote  mb-0">
@@ -72,7 +74,22 @@
                     @endforeach
                     @endif
                 </div>
+                {{ $reviews->links() }}
                 <div class="row my-5">
+                    @if (Auth::guest())
+                        <div class="col-12 d-flex justify-content-center">
+                            <div class="card text-center shadow w-50">
+                                <div class="card-header bg-dark">
+
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Create a Review? Sign in below</h5>
+                                    <a href="{{route('home')}}" class="btn btn-primary">Sign in</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    @else
                     <div class="col-12">
                         <form action="{{action('ReviewsController@store')}}" method="POST" class=" d-flex justify-content-center">
                             @csrf
@@ -89,6 +106,7 @@
                             </div>
                         </form>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

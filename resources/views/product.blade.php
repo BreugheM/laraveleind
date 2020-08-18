@@ -1,6 +1,6 @@
 @extends('layouts.front')
 @section('title')
-    Shop
+    Product
 @endsection
 @section('content')
     <section id="homeSectie2" class="container-fluid">
@@ -14,7 +14,9 @@
                         </a>
                     </div>
                     <div class="d-flex">
-                        <div class="list-group-item">Reviews</div>
+                        <a href="{{route('reviews')}}">
+                            <div class="list-group-item">Reviews</div>
+                        </a>
                         <a href="{{route('contact')}}">
                             <div class="list-group-item">Contact</div>
                         </a>
@@ -36,7 +38,7 @@
         </div>
     </section>
     <section id="productpage" class="container-fluid my-1 py-5">
-        <div class="row bg-white">
+        <div class="row bg-white shadow-lg">
             <div class="col-3 d-flex flex-column ">
                 <a href="{{route('shop')}}" class="d-flex justify-content-center">
                     <div id="backbtn" class="my-3 my-lg-5 d-flex p-1 align-items-center justify-content-center"><i
@@ -111,4 +113,5 @@
             </div>
         </div>
     </section>
+    @include('includes.might-like')
 @endsection

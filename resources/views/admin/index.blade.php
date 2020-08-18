@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 <div class="col-lg-4">
-    <div class="card">
+    <div class="card shadow-sm">
         <div class="card-header">
            <b>Reviews</b>
         </div>

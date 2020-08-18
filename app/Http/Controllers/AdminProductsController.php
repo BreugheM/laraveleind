@@ -151,7 +151,8 @@ class AdminProductsController extends Controller
     public function product($slug){
         $user = Auth::user();
         $product = Product::where('name', $slug)->first();
+        $mightAlsoLike = Product::where('name', '!=' ,$slug)->mightAlsoLike()->get();
         //$comments = $post->comments()->whereIsActive(1)->get();
-        return view('product', compact('product','user'));
+        return view('product', compact('product','user','mightAlsoLike'));
     }
 }

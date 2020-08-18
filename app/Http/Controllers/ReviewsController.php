@@ -33,7 +33,7 @@ class ReviewsController extends Controller
     {
         //
 
-        $reviews = Review::all();
+        $reviews = Review::paginate(9);
         return view('reviews', compact('reviews'));
     }
 
