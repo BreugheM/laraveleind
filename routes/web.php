@@ -52,7 +52,7 @@ Route::group(['middleware' =>'admin'], function(){
         $products = Product::all();
         $categories = Category::all();
         return view('admin.index',compact('users','brands','products','categories','user'));
-    });
+    })->name('admin');
 
     Route::resource('admin/users', 'AdminUsersController');
     Route::resource('admin/brands', 'AdminBrandsController');

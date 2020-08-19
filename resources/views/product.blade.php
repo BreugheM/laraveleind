@@ -106,6 +106,12 @@
                         <div class="collapse mb-4" id="collapseExample">
                             <div class="card card-body">
                                 {{$product->description}}
+
+                                @foreach($colors as $color)
+
+                                {{$color['colorName']}}
+
+                                    @endforeach
                             </div>
                         </div>
                     </div>

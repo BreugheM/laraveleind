@@ -6,6 +6,7 @@ use App\Brand;
 use App\Category;
 use App\Photo;
 use App\Product;
+use App\ProductColor;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -147,10 +148,10 @@ class AdminProductsController extends Controller
         return view('admin.products.index', compact('products', 'brands','user','users','categories'));
     }
     public function product($slug){
-        $user = Auth::user();
         $product = Product::where('name', $slug)->first();
+        $colors = ProductColor::where('id', 1)->get();
         $mightAlsoLike = Product::where('name', '!=' ,$slug)->mightAlsoLike()->get();
         //$comments = $post->comments()->whereIsActive(1)->get();
-        return view('product', compact('product','user','mightAlsoLike'));
+        return view('product', compact('product','mightAlsoLike','colors'));
     }
 }
