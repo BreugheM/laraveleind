@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProductColor extends Model
+class Color extends Model
 {
     protected $fillable = [
         'colorName',
@@ -12,5 +12,8 @@ class ProductColor extends Model
 
 
     ];
+    public function products(){
+        return $this->belongsToMany(Product::class, 'color_product');
+    }
 }
 

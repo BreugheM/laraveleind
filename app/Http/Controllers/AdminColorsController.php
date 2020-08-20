@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Category;
+use App\Color;
 use App\Product;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class AdminCategoriesController extends Controller
+class AdminColorsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +24,8 @@ class AdminCategoriesController extends Controller
         $brands = Brand::all();
         $products = Product::all();
         $categories = Category::all();
-        return view('admin.categories.index', compact('users','brands','products','categories'));
+        $colors = Color::all();
+        return view('admin.colors.index', compact('users','brands','products','categories','colors'));
     }
 
     /**
@@ -35,12 +36,6 @@ class AdminCategoriesController extends Controller
     public function create()
     {
         //
-
-        $users = User::all();
-        $brands = Brand::all();
-        $products = Product::all();
-        $categories = Category::all();
-        return view('admin.categories.create',compact('users','brands','products','categories'));
     }
 
     /**
@@ -52,8 +47,6 @@ class AdminCategoriesController extends Controller
     public function store(Request $request)
     {
         //
-        Category::create($request->all());
-        return redirect('admin/categories');
     }
 
     /**
@@ -73,15 +66,9 @@ class AdminCategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
         //
-        $user = Auth::user();
-        $users = User::all();
-        $brands = Brand::all();
-        $products = Product::all();
-        $categories = Category::all();
-        return view('admin.categories.edit', compact('category','users','brands','products','categories','user'));
     }
 
     /**
@@ -91,11 +78,9 @@ class AdminCategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
         //
-        $category->update($request->all());
-        return redirect('admin/categories');
     }
 
     /**
@@ -104,10 +89,8 @@ class AdminCategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
         //
-        $category->delete();
-        return redirect('admin/categories');
     }
 }

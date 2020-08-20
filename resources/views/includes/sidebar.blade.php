@@ -123,17 +123,17 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    <!-- Nav Item - Products -->
+    <!-- Nav Item - Colors -->
     <li class="nav-item">
-        <a class="nav-link" href="{{route('products.index')}}">
+        <a class="nav-link" href="{{route('colors.index')}}">
             <i class="fab fa-product-hunt"></i>
-            <span>All Products</span></a>
+            <span>All Colors</span></a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="{{route('products.create')}}">
+        <a class="nav-link" href="{{route('colors.create')}}">
             <i class="fas fa-plus-circle"></i>
-            <span>Add Product</span></a>
+            <span>Add Color</span></a>
     </li>
 
     <!-- Divider -->

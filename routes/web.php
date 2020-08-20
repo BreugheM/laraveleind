@@ -58,6 +58,7 @@ Route::group(['middleware' =>'admin'], function(){
     Route::resource('admin/brands', 'AdminBrandsController');
     Route::resource('admin/categories', 'AdminCategoriesController');
     Route::resource('admin/discounts', 'AdminDiscountsController');
+    Route::resource('admin/colors', 'AdminColorsController');
     Route::resource('admin/products', 'AdminProductsController',['index'=>'admin.products.index']);
     Route::get('admin/products/brands/{id}','AdminProductsController@productsPerBrand')->name('admin.productsPerBrand');
     Route::resource('admin/photos', 'AdminPhotosController');

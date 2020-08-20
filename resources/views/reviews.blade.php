@@ -98,7 +98,7 @@
                                 <h5 class="card-header">Create review</h5>
                                 <div class="card-body">
                                     <label for="reviewBody">Review</label>
-                                    <textarea rows="3" placeholder="Put your review here" class="form-control mb-2" name="reviewBody"
+                                    <textarea rows="3" required placeholder="Put your review here" class="form-control mb-2" name="reviewBody"
                                               id="reviewBody"></textarea>
                                     <input type="hidden" name="user_id" value="{{Auth()->user()->id}}">
                                     <button type="submit" class="btn btn-primary">Submit review</button>
