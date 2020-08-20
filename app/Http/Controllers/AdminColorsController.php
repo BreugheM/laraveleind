@@ -36,6 +36,11 @@ class AdminColorsController extends Controller
     public function create()
     {
         //
+        $users = User::all();
+        $brands = Brand::all();
+        $products = Product::all();
+        $categories = Category::all();
+        return view('admin.colors.create',compact('users','brands','products','categories'));
     }
 
     /**
