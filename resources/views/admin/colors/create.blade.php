@@ -30,7 +30,9 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-12">
+                    <p>Example("#00FFFF"). Find your hexcolor <a href="https://htmlcolorcodes.com/" target="_blank">here</a> </p>
                     <div class="form-group">
                         <button class="btn btn-primary" type="submit"><i class="fas fa-plus-circle"></i>
                             Create Color

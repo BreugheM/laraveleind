@@ -18,7 +18,6 @@ class CreateProductsTable extends Migration
             $table->bigInteger('category_id')->unsigned()->index();
             $table->bigInteger('brand_id')->unsigned()->index();
             $table->bigInteger('photo_id')->unsigned()->index();
-            $table->bigInteger('color_id')->unsigned()->index()->nullable();
             $table->string('name');
             $table->string('description');
             $table->decimal('price')->default(0);
@@ -27,8 +26,7 @@ class CreateProductsTable extends Migration
 
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('brand_id')->references('id')->on('brands');
-            $table->foreign('photo_id')->references('id')->on('photos');
-            $table->foreign('color_id')->references('id')->on('colors');
+            $table->foreign('photo_id')->references('id')->on('photos')->onDelete('cascade');
         });
     }
 

@@ -20,7 +20,8 @@ class FrontendController extends Controller
     public function index(){
         $brands = Brand::all();
         $products = Product::with(['brand','photo'])->get();
-        return view('index',compact('products','brands'));
+        $frontReviews = Review::inRandomOrder()->take(3)->get();
+        return view('index',compact('products','brands','frontReviews'));
     }
     public function productsPerBrand($id){
         $brands = Brand::all();

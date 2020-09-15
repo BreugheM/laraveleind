@@ -10,6 +10,7 @@
     {{--<link href="app.css" rel="stylesheet">--}}
     <link rel="stylesheet" href="{{asset('css/front-app.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    @yield('extra-stuff')
 
 </head>
 <body>

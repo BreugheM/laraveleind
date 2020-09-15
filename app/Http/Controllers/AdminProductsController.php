@@ -43,7 +43,8 @@ class AdminProductsController extends Controller
         $products = Product::all();
         $categories = Category::select('name','id')->get();
         $brands = Brand::select('name','id')->get();
-        return view('admin.products.create', compact('brands', 'categories','users','products'));
+        $colors = Color::all();
+        return view('admin.products.create', compact('brands', 'categories','users','products','colors'));
     }
 
     /**
@@ -63,7 +64,29 @@ class AdminProductsController extends Controller
             $input['photo_id'] = $photo->id;
         }
 
-        Product::create($input);
+
+
+
+       // Product::create($input);
+       // dd($input);
+        $product = new Product();
+        $product->category_id = $request->category_id;
+        $product->name = $request->name;
+        $product->brand_id = $request->brand_id;
+        $product->description = $request->description;
+        $product->photo_id = $photo->id;
+        $product->save();
+
+        //$product->colors()->attach($product->color_id);
+
+        /*foreach ($request->colors as $i=> $color){
+            dd($color->id);
+            $product->colors()->sync($color['id'], false);
+        }*/
+
+
+
+        //$input->colors()->sync($request->colors);
         return redirect('/admin/products');
     }
 
@@ -137,7 +160,26 @@ class AdminProductsController extends Controller
             $product->photo->delete();
         }
         $product->delete();
+
         return redirect('/admin/products');
+    }
+    public function attachColorProduct(){
+        $users = User::all();
+        $brands = Brand::all();
+        $categories = Category::all();
+        $products = Product::all();
+        $colors = Color::all();
+        return view('admin.products.attach' ,compact('products','colors','users','brands','categories'));
+    }
+    public function storeColorProduct(Request $request){
+        $input = $request->all();
+        $productid = $request->product_id;
+        $product = Product::findOrFail($productid);
+        $colorids = $request->color_id;
+        $product->colors()->sync($colorids);
+        //dd($product);
+        return redirect('admin/products');
+
     }
     public function productsPerBrand($id){
         $users = User::all();

@@ -134,41 +134,23 @@
                 <div class="row">
                     <div class="col-lg-10 offset-1">
                         <div class="row my-4">
+                            @if($frontReviews)
+                            @foreach($frontReviews as $frontReview)
                             <div class="col-lg-4">
                                 <div class="d-flex">
-                                    <img class="fotosreviews" src="images/persoon.png" alt="">
+                                    <img class="fotosreviews rounded-circle" src="{{$frontReview->user->photo ? asset('/images/userimg/' .
+                                $frontReview->user->photo->file) :
+                                "http:/placehold
+                            .it/62x62"}}" alt="">
                                     <div class="ml-1">
-                                        <h3 class="titelsreviews my-0">Celia Fields</h3>
-                                        <h4 class="ondertitelsreviews">UX-expert</h4>
+                                        <h3 class="titelsreviews my-0">{{$frontReview->user->name}}</h3>
+                                        <h4 class="ondertitelsreviews">{{$frontReview->user->role->name}}</h4>
                                     </div>
                                 </div>
-                                <p class="tekstreviews">This I have produced as a scantling of Jack’s great eloquence and the force of his
-                                    reasoning upon such
-                                    abstruse matters.</p>
+                                <p class="tekstreviews">{{$frontReview->reviewBody}}</p>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="d-flex">
-                                    <img class="fotosreviews" src="images/alex.png" alt="">
-                                    <div class="ml-1">
-                                        <h3 class="titelsreviews my-0">Alexander Lee</h3>
-                                        <h4 class="ondertitelsreviews">Founder</h4>
-                                    </div>
-                                </div>
-                                <p class="tekstreviews">Looking cautiously round, to ascertain that they were not overheard, the two hags
-                                    cowered nearer to the fire, and chuckled heartily.
-                                </p>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="d-flex">
-                                    <img class="fotosreviews" src="images/dinge.png" alt="">
-                                    <div class="ml-1">
-                                        <h3 class="titelsreviews my-0">Lenora Sandoval</h3>
-                                        <h4 class="ondertitelsreviews">Product Manager</h4>
-                                    </div>
-                                </div>
-                                <p class="tekstreviews">This sounded a very good reason, and Alice was quite pleased to know it. 'I never
-                                    thought of that before!' she said.</p>
-                            </div>
+                            @endforeach
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -186,47 +168,25 @@
                 </div>
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="col-lg-4 mt-3 mt-lg-0">
+                        @if($frontReviews)
+                        @foreach($frontReviews as $frontReview)
+                        <div class="carousel-item @if($loop->first) active @endif ">
+                            <div class="col-lg-4 mt-3 mt-lg-0 mx-auto">
                                 <div class="d-flex">
-                                    <img class="fotosreviews" src="images/persoon.png" alt="">
+                                    <img class="fotosreviews rounded-circle" src="{{$frontReview->user->photo ? asset('/images/userimg/' .
+                                $frontReview->user->photo->file) :
+                                "http:/placehold
+                            .it/62x62"}}" alt="">
                                     <div class="ml-1">
-                                        <h3 class="titelsreviews my-0">Celia Fields</h3>
-                                        <h4 class="ondertitelsreviews">UX-expert</h4>
+                                        <h3 class="titelsreviews my-0">{{$frontReview->user->name}}</h3>
+                                        <h4 class="ondertitelsreviews">{{$frontReview->user->role->name}}</h4>
                                     </div>
                                 </div>
-                                <p class="tekstreviews">This I have produced as a scantling of Jack’s great eloquence and the force of his
-                                    reasoning upon such
-                                    abstruse matters.</p>
+                                <p class="tekstreviews">{{$frontReview->reviewBody}}</p>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <div class="col-lg-4 mt-3 mt-lg-0">
-                                <div class="d-flex">
-                                    <img class="fotosreviews" src="images/alex.png" alt="">
-                                    <div class="ml-1">
-                                        <h3 class="titelsreviews my-0">Alexander Lee</h3>
-                                        <h4 class="ondertitelsreviews">Founder</h4>
-                                    </div>
-                                </div>
-                                <p class="tekstreviews">Looking cautiously round, to ascertain that they were not overheard, the two hags
-                                    cowered nearer to the fire, and chuckled heartily.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="col-lg-4 mt-3 mt-lg-0">
-                                <div class="d-flex">
-                                    <img class="fotosreviews" src="images/dinge.png" alt="">
-                                    <div class="ml-1">
-                                        <h3 class="titelsreviews my-0">Lenora Sandoval</h3>
-                                        <h4 class="ondertitelsreviews">Product Manager</h4>
-                                    </div>
-                                </div>
-                                <p class="tekstreviews">This sounded a very good reason, and Alice was quite pleased to know it. 'I never
-                                    thought of that before!' she said.</p>
-                            </div>
-                        </div>
+                       @endforeach
+                            @endif
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

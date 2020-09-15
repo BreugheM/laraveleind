@@ -76,7 +76,6 @@ class AdminCategoriesController extends Controller
     public function edit(Category $category)
     {
         //
-        $user = Auth::user();
         $users = User::all();
         $brands = Brand::all();
         $products = Product::all();

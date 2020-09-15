@@ -52,6 +52,8 @@ class AdminColorsController extends Controller
     public function store(Request $request)
     {
         //
+        Color::create($request->all());
+        return redirect('admin/colors');
     }
 
     /**
@@ -71,9 +73,14 @@ class AdminColorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Color $color)
     {
         //
+        $users = User::all();
+        $brands = Brand::all();
+        $products = Product::all();
+        $categories = Category::all();
+        return view('admin.colors.edit', compact('color','users','brands','products','categories'));
     }
 
     /**
@@ -83,9 +90,11 @@ class AdminColorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Color $color)
     {
         //
+        $color->update($request->all());
+        return redirect('admin/colors');
     }
 
     /**
@@ -94,8 +103,10 @@ class AdminColorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Color $color)
     {
         //
+        $color->delete();
+        return redirect('admin/colors');
     }
 }

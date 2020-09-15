@@ -59,11 +59,14 @@ Route::group(['middleware' =>'admin'], function(){
     Route::resource('admin/categories', 'AdminCategoriesController');
     Route::resource('admin/discounts', 'AdminDiscountsController');
     Route::resource('admin/colors', 'AdminColorsController');
+    Route::get('admin/products/attach','AdminProductsController@attachColorProduct')->name('admin.attachColorProduct');
+    Route::post('admin/products/attach','AdminProductsController@storeColorProduct')->name('admin.storeColorProduct');
     Route::resource('admin/products', 'AdminProductsController',['index'=>'admin.products.index']);
     Route::get('admin/products/brands/{id}','AdminProductsController@productsPerBrand')->name('admin.productsPerBrand');
     Route::resource('admin/photos', 'AdminPhotosController');
     Route::resource('admin/roles','AdminRolesController');
     Route::resource('admin/reviews', 'ReviewsController@index');
     Route::resource('admin/reviews', 'AdminReviewsController');
+
 });
 

@@ -46,7 +46,12 @@
                     <div class="col-lg-4">
                         <div class="card shadow mb-2">
                             <div class="card-header d-flex justify-content-between ">
+                                <img class="fotosreviews rounded-circle" src="{{$review->user->photo ? asset('/images/userimg/' .
+                                $review->user->photo->file) :
+                                "http:/placehold
+                            .it/62x62"}}" alt="">
                                 {{$review->user->name}}
+
                                 {{--<form method="POST" action="">
                                     @csrf
                                     @method('POST')

@@ -13,8 +13,8 @@ class BrandSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('brands')->insert(['name'=>'ADIDAS','description'=>'Beschrijving ADIDAS']);
-        DB::table('brands')->insert(['name'=>'NIKE','description'=>'Beschrijving ADIDAS']);
-        DB::table('brands')->insert(['name'=>'LACOSTE','description'=>'Beschrijving ADIDAS']);
+        DB::table('brands')->insert(['name'=>'Apple','description'=>'Beschrijving Apple']);
+        DB::table('brands')->insert(['name'=>'Bose','description'=>'Beschrijving Bose']);
+        DB::table('brands')->insert(['name'=>'Sony','description'=>'Beschrijving Sony']);
     }
 }

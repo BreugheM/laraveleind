@@ -47,6 +47,22 @@
 
                 <h2 class="my-3">{{$product->name}}</h2>
                 <p>&euro; {{$product->price}} </p>
+                @if($product->colors)
+                <div class="input-group mb-3 w-75 align-self-center">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Colors</label>
+                    </div>
+
+                    <select class="custom-select " id="inputGroupSelect01">
+                        <option disabled selected>Default</option>
+
+                        @foreach($product->colors as $color)
+                        <option value="{{$color->id}}">{{$color->colorName}}</option>
+                        @endforeach
+
+                    </select>
+                </div>
+                @endif
                 {{--<p class="mb-1 mt-lg-4">color</p>
                 <ul class="d-lg-flex p-0 justify-content-center">
                     <li class="d-flex justify-content-center my-1">
@@ -106,12 +122,6 @@
                         <div class="collapse mb-4" id="collapseExample">
                             <div class="card card-body">
                                 {{$product->description}}
-
-                                @foreach($colors as $color)
-
-                                {{$color['colorName']}}
-
-                                    @endforeach
                             </div>
                         </div>
                     </div>

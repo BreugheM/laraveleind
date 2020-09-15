@@ -2,6 +2,9 @@
 @section('title')
     Checkout
 @endsection
+@section('extra-stuff')
+    <script src="https://js.stripe.com/v3/"></script>
+    @endsection
 @section('content')
     <header class="bg-white d-flex justify-content-center">
         <h1 class="my-0 py-2">Checkout</h1>

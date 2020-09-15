@@ -19,15 +19,6 @@ class CreateColorsTable extends Migration
             $table->string('hexColor');
             $table->timestamps();
         });
-        Schema::create('color_product', function (Blueprint $table){
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('color_id');
-            $table->unsignedBigInteger('product_id');
-            $table->timestamps();
-            $table->unique(['color_id', 'product_id']);
-            $table->foreign('color_id')->references('id')->on('colors')->onDelete('cascade');
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-        });
     }
 
     /**

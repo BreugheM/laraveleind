@@ -33,6 +33,7 @@
                 <th scope="row"><i class="fab fa-product-hunt mx-1"></i>Product</th>
                 <th scope="row">Description</th>
                 <th scope="row">Price</th>
+                <th scope="row">Colors</th>
                 <th scope="row">Created At</th>
                 <th scope="row">Updated At</th>
             </tr>
@@ -52,6 +53,12 @@
                         </td>
                         <td>{{$product->description}}</td>
                         <td>{{$product->price}}</td>
+
+                        <td>
+                            @foreach($product->colors as $color)
+                            {{$color->colorName ? $color->colorName  : 'geen kleur' }}
+                            @endforeach
+                        </td>
                         <td>{{$product->created_at}}</td>
                         <td>{{$product->updated_at}}</td>
                         <td>
@@ -67,6 +74,7 @@
 
                             </form>
                         </td>
+
                     </tr>
                 @endforeach
             @endif

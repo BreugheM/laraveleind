@@ -7261,7 +7261,32 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(/*! ../js/mijnScript */ "./resources/js/mijnScript.js");
+
 __webpack_require__(/*! ../assets/front_assets/js/app */ "./resources/assets/front_assets/js/app.js");
+
+/***/ }),
+
+/***/ "./resources/js/mijnScript.js":
+/*!************************************!*\
+  !*** ./resources/js/mijnScript.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+//colorpicker
+//function
+
+/*console.log('test');
+$(function () {
+    // Basic instantiation:
+    $('#demo-input').colorpicker();
+
+    // Example using an event, to change the color of the #demo div background:
+    $('#demo-input').on('colorpickerChange', function(event) {
+        $('#cp-parent').css('background-color', event.color.toString());
+    });
+});*/
 
 /***/ }),
 
