@@ -75,6 +75,7 @@ class AdminProductsController extends Controller
         $product->brand_id = $request->brand_id;
         $product->description = $request->description;
         $product->photo_id = $photo->id;
+        $product->price = $request->price;
         $product->save();
 
         //$product->colors()->attach($product->color_id);
