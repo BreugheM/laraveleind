@@ -88,6 +88,7 @@ class FrontendController extends Controller
 
         $currencies = Currency::all();
         $paymentPlatforms = PaymentPlatform::all();
-        return view('payment')->with(['currencies' => $currencies, 'paymentPlatforms'=> $paymentPlatforms]);
+        $cart = Session::get('cart');
+        return view('payment',compact('cart'))->with(['currencies' => $currencies, 'paymentPlatforms'=> $paymentPlatforms]);
     }
 }

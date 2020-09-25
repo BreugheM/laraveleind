@@ -43,6 +43,9 @@ Route::get('/payments/cancelled', 'PaymentController@cancelled')->name('cancelle
 Route::get('/reviews', 'ReviewsController@create')->name('reviews');
 Route::post('/reviews', 'ReviewsController@store');
 
+
+
+
 //backend
 Route::group(['middleware' =>'admin'], function(){
     Route::get('/admin', function(){

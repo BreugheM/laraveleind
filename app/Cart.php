@@ -34,6 +34,7 @@ class Cart extends Model
         $shopItems['product_image'] = $product->photo->file;
         $shopItems['product_description'] = $product->description;
 
+
         $this->totalQuantity++;
         $this->totalPrice += $product->price;
         $this->products[$product_id] = $shopItems;

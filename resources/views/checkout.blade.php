@@ -3,7 +3,10 @@
     Checkout
 @endsection
 @section('extra-stuff')
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
     <script src="https://js.stripe.com/v3/"></script>
+{{--    <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>--}}
+{{--    <script>paypal.Buttons().render('body');</script>--}}
     @endsection
 @section('content')
     <header class="bg-white d-flex justify-content-center">
@@ -200,3 +203,4 @@
         </div>
     </section>
 @endsection
+

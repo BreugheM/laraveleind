@@ -8,74 +8,28 @@
                     <div class="card-header">Betalingen</div>
 
                     <div class="card-body">
-                        <form action="{{ route('pay') }}" method="POST" id="paymentForm">
-                            @csrf
-                            <div class="row">
-                                <div class="col-auto">
-                                    <label>te betalen</label>
-                                    <input
-                                        type="number"
-                                        min="5"
-                                        step="0.01"
-                                        class="form-control"
-                                        name="value"
-                                        value="{{Session::get('cart')->totalPrice}}"
-                                        required
-                                    >
-                                </div>
-                                <div class="col-auto">
-                                    <label>Currency</label>
-                                    <select class="custom-select" name="currency" required>
-                                        @foreach ($currencies as $currency)
-                                            <option value="{{ $currency->iso }}">
-                                                {{ strtoupper($currency->iso) }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col">
-                                    <label>
-                                        Select de gewenste betalingsgateway
-                                    </label>
-                                    <div class="form-group" id="toggler">
-                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            @foreach ($paymentPlatforms as $paymentPlatform)
-                                                <label
-                                                    class="btn btn-outline-secondary rounded m-2 p-1"
-                                                    data-target="#{{ $paymentPlatform->name }}Collapse"
-                                                    data-toggle="collapse"
-                                                >
-                                                    <input
-                                                        type="radio"
-                                                        name="payment_platform"
-                                                        value="{{ $paymentPlatform->id }}"
-                                                        required
-                                                    >
-                                                    <img class="img-thumbnail" src="{{ asset($paymentPlatform->image) }}">
-                                                </label>
-                                            @endforeach
-                                        </div>
-                                        @foreach ($paymentPlatforms as $paymentPlatform)
-                                            <div
-                                                id="{{ $paymentPlatform->name }}Collapse"
-                                                class="collapse"
-                                                data-parent="#toggler"
-                                            >
-                                                @includeIf ('components.' . strtolower($paymentPlatform->name) . '-collapse')
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-center mt-3">
-                                <button type="submit" id="payButton" class="btn btn-primary btn-lg">Pay</button>
-                            </div>
+
+                        <!-- Display a payment form -->
+                        <form id="payment-form">
+                            <div id="card-element"><!--Stripe.js injects the Card Element--></div>
+                            <button id="submit">
+                                <div class="spinner hidden" id="spinner"></div>
+                                <span id="button-text">Pay</span>
+                            </button>
+                            <p id="card-error" role="alert"></p>
+                            <p class="result-message hidden">
+                                Payment succeeded, see the result in your
+                                <a href="" target="_blank">Stripe dashboard.</a> Refresh the page to pay again.
+                            </p>
                         </form>
+
                     </div>
+
+
+
                 </div>
             </div>
         </div>
     </div>
     @endsection
+
