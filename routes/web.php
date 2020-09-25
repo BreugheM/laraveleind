@@ -70,6 +70,7 @@ Route::group(['middleware' =>'admin'], function(){
     Route::resource('admin/roles','AdminRolesController');
     Route::resource('admin/reviews', 'ReviewsController@index');
     Route::resource('admin/reviews', 'AdminReviewsController');
+    Route::resource('admin/banners', 'AdminBannersController');
 
 });
 

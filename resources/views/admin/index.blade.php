@@ -37,7 +37,7 @@
         <div class="card-body">
             <h5 class="card-title">Special title treatment</h5>
             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="{{route('reviews.index')}}" class="btn btn-primary">Manage banners</a>
+            <a href="{{route('banners.index')}}" class="btn btn-primary">Manage banners</a>
         </div>
     </div>
 </div>

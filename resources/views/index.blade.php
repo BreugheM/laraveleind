@@ -46,33 +46,26 @@
                 <li data-target="#carouselExampleCaptions" data-slide-to="2" class="indicatoren"></li>
             </ol>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{asset('images/Placeholder.png')}}" class="d-block w-100" alt="...">
+                @if($banners)
+                @foreach($banners as $banner)
+                <div class="carousel-item @if($loop->first) active @endif">
+                    <img   src="{{$banner->photo ? asset('/images/banners/' .
+                                $banner->photo->file) :
+                                "http:/placehold
+                            .it/62x62"}}" class="d-block w-100 fixed-height" alt="...">
                     <div class="carousel-caption d-flex flex-column justify-content-start ">
-                        <h5 class="slidertitel mr-auto w-50 mb-xl-5">iPhone 6 32Gb Black</h5>
-                        <p class="slidertext mr-auto w-50 d-none d-lg-block">At first, for some time, I was not able to answer him one word; but as he had
-                            taken me in his arms I held fast by him, or I should have fallen to the ground.</p>
-                        <button class="btncaroussel mb-lg-4">Shop now </button>
+                        <h5 class="slidertitel mr-auto w-50 mb-xl-5">{{$banner->title}}</h5>
+                        <p class="slidertext mr-auto w-50 d-none d-lg-block">{{$banner->description}}</p>
+                        <a href="{{route("home.product" , $banner->product->name)}}">
+                            <button class="btncaroussel mb-lg-4">Shop now </button>
+                        </a>
+
                     </div>
                 </div>
-                <div class="carousel-item ">
-                    <img src="{{asset('images/Placeholder.png')}}" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-flex flex-column justify-content-start ">
-                        <h5 class="slidertitel mr-auto w-50 mb-xl-5">iPhone 6 32Gb Black</h5>
-                        <p class="slidertext mr-auto w-50 d-none d-lg-block">At first, for some time, I was not able to answer him one word; but as he had
-                            taken me in his arms I held fast by him, or I should have fallen to the ground.</p>
-                        <button class="btncaroussel mb-lg-4">Shop now </button>
-                    </div>
-                </div>
-                <div class="carousel-item ">
-                    <img src="{{asset('images/Placeholder.png')}}" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-flex flex-column justify-content-start ">
-                        <h5 class="slidertitel mr-auto w-50 mb-xl-5">iPhone 6 32Gb Black</h5>
-                        <p class="slidertext mr-auto w-50 d-none d-lg-block">At first, for some time, I was not able to answer him one word; but as he had
-                            taken me in his arms I held fast by him, or I should have fallen to the ground.</p>
-                        <button class="btncaroussel mb-lg-4">Shop now </button>
-                    </div>
-                </div>
+                    @endforeach
+                    @endif
+
+
             </div>
             <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -134,7 +127,7 @@
                 <div class="row">
                     <div class="col-lg-10 offset-1">
                         <div class="row my-4">
-                            @if($frontReviews)
+                            @if(count($frontReviews)>0)
                             @foreach($frontReviews as $frontReview)
                             <div class="col-lg-4">
                                 <div class="d-flex">
@@ -150,6 +143,16 @@
                                 <p class="tekstreviews">{{$frontReview->reviewBody}}</p>
                             </div>
                             @endforeach
+                            @elseif(count($frontReviews)==0)
+                                <div class="card text-center shadow w-50 mx-auto">
+                                    <div class="card-header bg-dark">
+
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">No reviews yet... Be the first!</h5>
+                                        <a href="{{route('reviews')}}" class="btn btn-primary">Write a review</a>
+                                    </div>
+                                </div>
                             @endif
                         </div>
                     </div>
@@ -168,7 +171,7 @@
                 </div>
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
-                        @if($frontReviews)
+                        @if(count($frontReviews)>0)
                         @foreach($frontReviews as $frontReview)
                         <div class="carousel-item @if($loop->first) active @endif ">
                             <div class="col-lg-4 mt-3 mt-lg-0 mx-auto">
@@ -186,7 +189,17 @@
                             </div>
                         </div>
                        @endforeach
-                            @endif
+                        @elseif(count($frontReviews)==0)
+                            <div class="card text-center shadow mx-auto">
+                                <div class="card-header bg-dark">
+
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">No reviews yet... Be the first!</h5>
+                                    <a href="{{route('reviews')}}" class="btn btn-primary">Write a review</a>
+                                </div>
+                            </div>
+                        @endif
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

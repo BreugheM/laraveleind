@@ -170,4 +170,14 @@ button:disabled {
     }
 }
 
+/*slidercss*/
+.owl-carousel .owl-item img {
+    height:auto;
+    width:100%;
+    display: block;
+}
+
+.owl-carousel .item {
+    margin:0px;
+}
 

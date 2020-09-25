@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Banner;
 use App\Brand;
 use App\Cart;
 use App\Category;
@@ -18,10 +19,11 @@ class FrontendController extends Controller
 {
     //
     public function index(){
+        $banners = Banner::all();
         $brands = Brand::all();
         $products = Product::with(['brand','photo'])->get();
         $frontReviews = Review::inRandomOrder()->take(3)->get();
-        return view('index',compact('products','brands','frontReviews'));
+        return view('index',compact('products','brands','frontReviews','banners'));
     }
     public function productsPerBrand($id){
         $brands = Brand::all();
@@ -77,11 +79,12 @@ class FrontendController extends Controller
     }
     public function shop(){
 
+        $banners = Banner::all();
         $reviews = Review::all();
         $brands = Brand::all();
         $categories = Category::all();
         $products = Product::with(['brand','photo'])->get();
-        return view('shop',compact('products','categories', 'brands'));
+        return view('shop',compact('products','categories', 'brands','banners'));
     }
     public function payment()
     {

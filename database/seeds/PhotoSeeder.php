@@ -19,5 +19,6 @@ class PhotoSeeder extends Seeder
         DB::table('photos')->insert(['file'=>'1587710651bose_box.jpg']);
         DB::table('photos')->insert(['file'=>'1587711803headphones.jpg']);
         DB::table('photos')->insert(['file'=>'1587797447fitbit.jpg']);
+        DB::table('photos')->insert(['file'=>'Placeholder.jpg']);
     }
 }

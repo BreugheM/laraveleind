@@ -45,33 +45,26 @@
                 <li data-target="#carouselExampleCaptions" data-slide-to="2" class="indicatoren"></li>
             </ol>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{asset('images/Placeholder.png')}}" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-flex flex-column justify-content-start ">
-                        <h5 class="slidertitel mr-auto w-50 mb-xl-5">iPhone 6 32Gb Black</h5>
-                        <p class="slidertext mr-auto w-50 d-none d-lg-block">At first, for some time, I was not able to answer him one word; but as he had
-                            taken me in his arms I held fast by him, or I should have fallen to the ground.</p>
-                        <button class="btncaroussel mb-lg-4">Shop now </button>
-                    </div>
-                </div>
-                <div class="carousel-item ">
-                    <img src="{{asset('images/Placeholder.png')}}" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-flex flex-column justify-content-start ">
-                        <h5 class="slidertitel mr-auto w-50 mb-xl-5">iPhone 6 32Gb Black</h5>
-                        <p class="slidertext mr-auto w-50 d-none d-lg-block">At first, for some time, I was not able to answer him one word; but as he had
-                            taken me in his arms I held fast by him, or I should have fallen to the ground.</p>
-                        <button class="btncaroussel mb-lg-4">Shop now </button>
-                    </div>
-                </div>
-                <div class="carousel-item ">
-                    <img src="{{asset('images/Placeholder.png')}}" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-flex flex-column justify-content-start ">
-                        <h5 class="slidertitel mr-auto w-50 mb-xl-5">iPhone 6 32Gb Black</h5>
-                        <p class="slidertext mr-auto w-50 d-none d-lg-block">At first, for some time, I was not able to answer him one word; but as he had
-                            taken me in his arms I held fast by him, or I should have fallen to the ground.</p>
-                        <button class="btncaroussel mb-lg-4">Shop now </button>
-                    </div>
-                </div>
+                @if($banners)
+                    @foreach($banners as $banner)
+                        <div class="carousel-item @if($loop->first) active @endif">
+                            <img   src="{{$banner->photo ? asset('/images/banners/' .
+                                $banner->photo->file) :
+                                "http:/placehold
+                            .it/62x62"}}" class="d-block w-100 fixed-height" alt="...">
+                            <div class="carousel-caption d-flex flex-column justify-content-start ">
+                                <h5 class="slidertitel mr-auto w-50 mb-xl-5">{{$banner->title}}</h5>
+                                <p class="slidertext mr-auto w-50 d-none d-lg-block">{{$banner->description}}</p>
+                                <a href="{{route("home.product" , $banner->product->name)}}">
+                                    <button class="btncaroussel mb-lg-4">Shop now </button>
+                                </a>
+
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+
+
             </div>
             <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
