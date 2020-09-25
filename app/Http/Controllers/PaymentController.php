@@ -72,33 +72,7 @@ class PaymentController extends Controller
             ->withErrors('You cancelled the payment.');
     }
 
-    public function stripePost(Request $request)
-    {
-        Stripe\Stripe::setApiKey("sk_test_51HFblgEuZSvSY5lUHnXu0VXiYjgvx6c9MSXi3o67SU6o3HM18anCRQ8cGBUfo4UO3xqe0eeskipeD3rwPo6VsaXS004Fx321vY");
-        $cart = Session::get('cart');
-        $checkout_session = Stripe\Checkout\Session::create ([
-            'payment_method_types' => ['card'],
-            'line_items' => [[
-                'price_data' => [
-                    'currency' => 'eur',
-                    'unit_amount' => $cart->totalPrice,
-                    // 'product_data' => [
-                    //   'name' => 'Stu',
-                    // 'images' => ["https://i.imgur.com/EHyR2nP.png"],
-                    //],
-                ],
-                'quantity' => 1,
-            ]],
-            'mode' => 'payment',
-            //'success_url' => YOUR_DOMAIN . '/success.html',
-            //'cancel_url' => YOUR_DOMAIN . '/cancel.html',
-        ]);
 
-
-
-
-        echo json_encode(["id"=>$checkout_session->id]);
-    }
 
 
 
