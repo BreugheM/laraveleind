@@ -6,7 +6,7 @@ use App\Cart;
 use App\Resolvers\PaymentPlatformResolver;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use Stripe;
+use Stripe\Stripe;
 
 class PaymentController extends Controller
 {
@@ -71,6 +71,7 @@ class PaymentController extends Controller
             ->route('payment')
             ->withErrors('You cancelled the payment.');
     }
+
 
 
 

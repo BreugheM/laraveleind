@@ -5,8 +5,8 @@
 @section('extra-stuff')
     <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
     <script src="https://js.stripe.com/v3/"></script>
-{{--    <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>--}}
-{{--    <script>paypal.Buttons().render('body');</script>--}}
+
+
     @endsection
 @section('content')
     <header class="bg-white d-flex justify-content-center">
@@ -15,63 +15,80 @@
     <section id="checkoutDeel" class="container-fluid bg-white">
         <div class="row">
             <div id="coDeel1" class="col-12 col-md-7 mb-2">
-                <form>
+                <form id="formOrder" name="formOrders" action="{{action('FrontendController@storeOrder')}}" method="POST">
+                    @csrf
+                    @method('POST')
                     <h2>Billing Details</h2>
                     <div class="row">
+
                         <div class="col-12 col-md-6">
                             <div class="form-group d-flex flex-column">
                                 <label for="checkoutVoornaam">Voornaam*</label>
-                                <input type="text" id="checkoutVoornaam" placeholder="  Voornaam" required>
+                                <input type="text" name="first_name" id="checkoutVoornaam" placeholder="  Voornaam" required>
                             </div>
                         </div>
+
                         <div class="col-12 col-md-6">
                             <div class="form-group d-flex flex-column">
                                 <label for="checkoutAchternaam">Achternaam*</label>
-                                <input type="text" id="checkoutAchternaam" placeholder="  Achternaam" required>
+                                <input type="text" name="last_name" id="checkoutAchternaam" placeholder="  Achternaam" required>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group d-flex flex-column">
                                 <label for="checkoutEmail">Email*</label>
-                                <input type="email" id="checkoutEmail" placeholder="  email">
+                                <input type="email" name="email" id="checkoutEmail" placeholder="  email" required>
                             </div>
                         </div>
-                        <div class="col-12">
+
+                        <div class="col-8">
                             <div class="form-group d-flex flex-column">
-                                <label for="checkoutCompany">Bedrijf</label>
-                                <input type="text" id="checkoutCompany" placeholder="  Bedrijf">
+                                <label for="checkoutAdres1">Straatnaam*</label>
+                                <input type="text" name="street_name" id="checkoutAdres1" placeholder="  Adres" required>
                             </div>
                         </div>
-                        <div class="col-12">
+                        <div class="col-4">
                             <div class="form-group d-flex flex-column">
-                                <label for="checkoutAdres1">Adres*</label>
-                                <input type="text" id="checkoutAdres1" placeholder="  Adres">
+                                <label for="checkoutAdres1">Straatnr*</label>
+                                <input type="text" name="street_nr" id="checkoutStraatnr" placeholder="  streetnr" required>
                             </div>
                         </div>
-                        <div class="col-12">
-                            <div class="form-group d-flex flex-column">
-                                <label for="checkoutAdres2">Adres 2</label>
-                                <input type="text" id="checkoutAdres2" placeholder="  Adres 2">
-                            </div>
-                        </div>
+
                         <div class="col-12 col-md-6">
                             <div class="form-group d-flex flex-column">
                                 <label for="checkoutStad">Stad*</label>
-                                <input type="text" id="checkoutStad" placeholder="  Stad">
+                                <input type="text" name="city" id="checkoutStad" placeholder="  Stad" required>
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="form-group d-flex flex-column">
                                 <label for="checkoutPostcode">Postcode*</label>
-                                <input type="text" id="checkoutPostcode" placeholder="  Postcode">
+                                <input type="text" name="zip_code" id="checkoutPostcode" placeholder="  Postcode" required>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group d-flex flex-column">
-                                <label for="checkoutTel">Telefoon*</label>
-                                <input type="tel" id="checkoutTel" placeholder="  Telefoon">
+                                <label for="checkoutTel">Telefoon</label>
+                                <input type="tel" name="cell_nr" id="checkoutTel" placeholder="  Telefoon">
                             </div>
                         </div>
+                        <div class="col-12">
+                            <div class="form-group d-flex flex-column">
+                                <label for="checkoutRemarks">Opmerkingen</label>
+                                <textarea name="remarks" id="checkoutRemarks" cols="30" rows="5" placeholder="Eventuele bestelopmerkingen"
+                                          class="w-100"></textarea>
+                            </div>
+                        </div>
+
+                       {{-- <div class="col-12 d-none">
+                            <div class="form-group d-flex flex-column">
+                                <label for="products">Products</label>
+                                <input type="text" value="@foreach($cart as $product)">
+                            </div>
+                        </div>--}}
+
+                        <button type="submit" id="formCheck"  name="formOrder" class="btn btn-primary d-none">Submit Order</button>
+
                     </div>
                     {{--<h2>Levering</h2>
                     <table class="table">
@@ -99,8 +116,11 @@
 
                         </tbody>
                     </table>--}}
-                    <textarea name="remarks" id="remarks" cols="30" rows="5" placeholder="Eventuele bestelopmerkingen" class="w-100"></textarea>
 
+
+                    <div class="my-3">Betaling</div>
+
+                    <div id="paypal-button-container"></div>
 
 
                 </form>
@@ -140,7 +160,8 @@
                                                    min="1" max="100">
                                             <input class="form-control form-control-sm" type="hidden" name="id"
                                                    value="{{$item['product_id']}}">
-                                            <button class="btn btn-primary  btn-sm mt-2 ml-3 my-auto" type="submit"><i class="fas
+                                            <button class="btn btn-primary  btn-sm mt-2 ml-3 my-auto" name="formUpdateQuantity"
+                                                    type="submit"><i class="fas
                                             fa-euro"></i>
                                                 Update price
                                             </button>
@@ -166,8 +187,7 @@
                         <ul class="p-3 my-2">
                             <li class="d-flex">
                                 <p>Subtotal</p>
-                                <p class="ml-auto">&euro; {{Session::get('cart')
-                ->totalPrice}}</p>
+                                <p class="ml-auto">&euro; {{Session::get('cart')->totalPrice}}</p>
                             </li>
                             <li class="d-flex">
                                 <p>Levering</p>
@@ -175,8 +195,8 @@
                             </li>
                             <li id="totaalBedrag" class="d-flex">
                                 <p class="my-3">Total</p>
-                                <p class="ml-auto my-3">&euro; {{Session::get('cart')
-                ->totalPrice}}</p>
+                                <p class="ml-auto my-3">&euro; {{Session::get('cart')->totalPrice}}</p>
+                                <div class="d-none" id="totaalPrijs" >{{Session::get('cart')->totalPrice}}</div>
                             </li>
                         </ul>
                     </div>
@@ -190,12 +210,9 @@
                 <div class="d-flex">
 
                     <a class="btn btn-primary my-auto w-50" id="backToShop" href="{{route('shop')}}">Verder winkelen</a>
-                    <a href="{{route('payment')}}" id="bestelKnop" class="btn btn-primary my-auto w-50"><p class="mx-auto m-0
-                    w-50">
-                            Naar betalen
-                        </p>
+                    <a class="w-100" href="{{route('payment')}}"><button class="btn btn-primary rounded-pill my-auto w-50"
+                                                     id="checkout-button">Checkout</button></a>
 
-                    </a>
                 </div>
 
                 @endif

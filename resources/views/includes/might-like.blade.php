@@ -1,4 +1,4 @@
-<section class="mightlike-section mb-1">
+<section class="mightlike-section my-3">
         <div class="row">
             <div class="col-10 offset-1">
 

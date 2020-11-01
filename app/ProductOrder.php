@@ -4,14 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ColorProduct extends Model
+class ProductOrder extends Model
 {
     //
     public $incrementing = true;
 
-
     protected $fillable = [
-        'order_id',
+        'color_id',
         'product_id'
+
+
     ];
 }

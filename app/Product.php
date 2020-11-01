@@ -36,6 +36,10 @@ class Product extends Model
     public function colors(){
         return $this->belongsToMany(Color::class, 'color_product');
     }
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class, 'product_order');
+    }
 
     //extra functies
     public function scopeMightAlsoLike($query){

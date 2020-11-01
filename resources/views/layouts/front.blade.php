@@ -15,13 +15,8 @@
 
 </head>
 <body>
-{{--<script
-    src="https://www.paypal.com/sdk/js?client-id=AVpEeChzIqTEhHiygxGNnkVrCbw674-6IOS3ueCF6RtAjvhhMeV-vPbqb5q-F8MrYHw57C1CE-dnqrog"> //
-    // Required. Replace SB_CLIENT_ID with your sandbox client ID.
-</script>--}}
-@php
-    $stripe_key = 'pk_test_51HFblgEuZSvSY5lU9lxQFOZdwScF14Ci2YLezG0JXf3fMtq1Gl0nqYW7pTkChrjGTXssWwOM0a8inXYtt8da1ArM002Ju2Nonk';
-@endphp
+
+
 <header class="d-none">
     <h1>home</h1>
     <h2>home2</h2>
@@ -33,10 +28,6 @@
         <div class="col-lg-10 offset-lg-1 my-3">
             <nav class="navbar navbar-expand-lg navbar-light ">
                 <a class="navbar-brand" href="{{route('index')}}"><img src="{{asset('images/portland.png')}}" alt=""></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
                 <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
                     <a href="{{route('checkout')}}">
                         <span class="fa-2x" data-count="">
@@ -172,6 +163,7 @@
                 <div class="col-lg-6 d-flex justify-content-center justify-content-lg-end">
                     <p class="tekstvoeter">PRIVACY POLICY</p>
                     <p class="tekstvoeter">TERMS AND CONDITIONS</p>
+
                 </div>
             </div>
         </div>
@@ -179,6 +171,13 @@
 </section>
 
 {{--<script type="text/javascript" src="app.js"></script>--}}
+
+<script
+    src="https://www.paypal.com/sdk/js?client-id=AVpEeChzIqTEhHiygxGNnkVrCbw674-6IOS3ueCF6RtAjvhhMeV-vPbqb5q-F8MrYHw57C1CE-dnqrog&currency=EUR">
+    // Required. Replace SB_CLIENT_ID with your sandbox client ID.
+</script>
+
+
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>

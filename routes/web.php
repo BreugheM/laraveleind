@@ -31,6 +31,7 @@ Route::get('/products/brands/{id}','FrontendController@productsPerBrand')->name(
 Route::get('/products/categories/{id}','FrontendController@productsPerCategory')->name('productsPerCategory');
 Route::get('/products/addToCart{id}', 'FrontendController@addToCart')->name('addToCart');
 Route::get('/checkout', 'FrontendController@cart')->name('checkout');
+Route::post('/checkout/approval', 'FrontendController@storeOrder')->name('storeOrder');
 Route::post('/checkout', 'FrontendController@updateQuantity')->name('quantity');
 Route::get('/removeItem/{id}', 'FrontendController@removeItem')->name('removeItem');
 Route::get('/product/{name}', 'AdminProductsController@product')->name('home.product');
@@ -42,6 +43,7 @@ Route::get('/payments/approval', 'PaymentController@approval')->name('approval')
 Route::get('/payments/cancelled', 'PaymentController@cancelled')->name('cancelled');
 Route::get('/reviews', 'ReviewsController@create')->name('reviews');
 Route::post('/reviews', 'ReviewsController@store');
+
 
 
 
@@ -71,6 +73,7 @@ Route::group(['middleware' =>'admin'], function(){
     Route::resource('admin/reviews', 'ReviewsController@index');
     Route::resource('admin/reviews', 'AdminReviewsController');
     Route::resource('admin/banners', 'AdminBannersController');
+    Route::resource('admin/orders', 'AdminOrdersController');
 
 });
 
