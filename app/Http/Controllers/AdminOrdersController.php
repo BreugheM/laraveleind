@@ -26,7 +26,8 @@ class AdminOrdersController extends Controller
         $products = Product::all();
         $categories = Category::all();
         $orders = Order::all();
-        return view('admin.orders.index', compact('orders','brands','users','products','categories','user'));
+        $completedOrders = Order::onlyTrashed()->get();
+        return view('admin.orders.index', compact('orders','brands','users','products','categories','user', 'completedOrders'));
     }
 
     /**
@@ -70,6 +71,7 @@ class AdminOrdersController extends Controller
     public function edit($id)
     {
         //
+
     }
 
     /**
@@ -93,5 +95,22 @@ class AdminOrdersController extends Controller
     public function destroy($id)
     {
         //
+        $order = Order::findOrFail($id);
+        $order->delete();
+        session()->flash('message','1 order has been completed');
+
+        return redirect('/admin/orders');
+
     }
+    public function restoreOrder($id)
+    {
+        $order = Order::onlyTrashed()->where('id',$id)->first();
+
+
+        $order->restore();
+        session()->flash('notCompleted','1 order has not been completed');
+
+        return redirect('/admin/orders');
+    }
+
 }

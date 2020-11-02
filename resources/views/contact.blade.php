@@ -43,14 +43,22 @@
                 <div class="row">
                     <div class="col-md-6 ml-2 ml-md-0 ">
                         <div>
+                            @if(session()->has('message'))
+                                <div class="alert alert-success w-50" role="alert">
+                                    {{session()->get('message')}}
+                                </div>
+                            @endif
                             <h2>
                                 Get in Touch!
                             </h2>
                             <h3>Its Free!</h3>
+
                         </div>
+
 
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-md-5 col-lg-4 p-3 ml-2 ml-md-0">
                         <p class="eyebrow">find us</p>
@@ -63,7 +71,9 @@
                         <p><i class="fas fa-phone-alt"></i> +54321 67 45 35<br>
                             <i class="fas fa-at"></i> email@madeup.com
                         </p>
+
                     </div>
+
 
                 </div>
             </div>

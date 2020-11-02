@@ -41,6 +41,19 @@
         </div>
     </div>
 </div>
+<div class="col-lg-8">
+    <div class="card shadow mb-2">
+        <div class="card-header">
+            <b><i class="fab fa-product-hunt mx-2"></i>Products</b>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="{{route('orders.index')}}" class="btn btn-primary">View all orders</a>
+
+        </div>
+    </div>
+</div>
 
 @endsection
 

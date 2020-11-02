@@ -17,6 +17,7 @@ class ContactController extends Controller
     public function store(Request $request){
         $data = $request->all();
         Mail::to(request('email'))->send(new Contact($data));
+        session()->flash('message','Message sent. Thank you');
         return redirect('/contact');
 
     }

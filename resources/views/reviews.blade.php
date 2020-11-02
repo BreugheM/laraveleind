@@ -21,6 +21,11 @@
                             <div class="list-group-item">Contact</div>
                         </a>
                     </div>
+                    @if(session()->has('message'))
+                        <div class="alert alert-success" role="alert">
+                            {{session()->get('message')}}
+                        </div>
+                        @endif
 
 
                 </div>
@@ -48,19 +53,8 @@
                             <div class="card-header d-flex justify-content-between ">
                                 <img class="fotosreviews rounded-circle" src="{{$review->user->photo ? asset('/images/userimg/' .
                                 $review->user->photo->file) :
-                                "http:/placehold
-                            .it/62x62"}}" alt="">
+                                "http:/placehold.it/62x62"}}" alt="">
                                 {{$review->user->name}}
-
-                                {{--<form method="POST" action="">
-                                    @csrf
-                                    @method('POST')
-                                    <div class="form-control">
-                                        <button type="submit">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </div>
-                                </form>--}}
                             </div>
                             <div class="card-body">
                                 <blockquote class="blockquote  mb-0">

@@ -118,9 +118,15 @@
                     </table>--}}
 
 
-                    <div class="my-3">Betaling</div>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-center">
+                            <div class="my-3">Payment</div>
 
-                    <div id="paypal-button-container"></div>
+                            <div id="paypal-button-container" type="submit" class="mx-auto w-50"></div>
+                        </div>
+                    </div>
+
+
 
 
                 </form>
@@ -189,10 +195,6 @@
                                 <p>Subtotal</p>
                                 <p class="ml-auto">&euro; {{Session::get('cart')->totalPrice}}</p>
                             </li>
-                            <li class="d-flex">
-                                <p>Levering</p>
-                                <p class="ml-auto">$0</p>
-                            </li>
                             <li id="totaalBedrag" class="d-flex">
                                 <p class="my-3">Total</p>
                                 <p class="ml-auto my-3">&euro; {{Session::get('cart')->totalPrice}}</p>
@@ -209,9 +211,7 @@
 
                 <div class="d-flex">
 
-                    <a class="btn btn-primary my-auto w-50" id="backToShop" href="{{route('shop')}}">Verder winkelen</a>
-                    <a class="w-100" href="{{route('payment')}}"><button class="btn btn-primary rounded-pill my-auto w-50"
-                                                     id="checkout-button">Checkout</button></a>
+                    <a class="btn btn-primary my-auto w-50" id="backToShop" href="{{route('shop')}}">Back to shop</a>
 
                 </div>
 

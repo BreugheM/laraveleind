@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Order extends Model
 {
+    use SoftDeletes;
     //
     protected $fillable = [
         'first_name',
@@ -18,6 +20,7 @@ class Order extends Model
         'cell_nr',
         'remarks',
         'totalPrice',
+        'is_active',
     ];
 
 

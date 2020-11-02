@@ -50,6 +50,7 @@ class ReviewsController extends Controller
         $review->reviewBody = $request->reviewBody;
         $review->user_id = $request->user_id;
         $review->save();
+        session()->flash('message','Review successfully uploaded');
         return redirect('/reviews');
 
     }

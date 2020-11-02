@@ -74,6 +74,9 @@ Route::group(['middleware' =>'admin'], function(){
     Route::resource('admin/reviews', 'AdminReviewsController');
     Route::resource('admin/banners', 'AdminBannersController');
     Route::resource('admin/orders', 'AdminOrdersController');
+    Route::post('admin/orders/{id}', 'AdminOrdersController@restoreOrder');
+
+
 
 });
 

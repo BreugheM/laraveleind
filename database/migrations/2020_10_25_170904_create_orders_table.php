@@ -25,6 +25,7 @@ class CreateOrdersTable extends Migration
             $table->integer('cell_nr')->nullable();
             $table->text('remarks')->nullable();
             $table->decimal('totalPrice');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -36,6 +37,9 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::table('orders',function (Blueprint $table){
+            $table->dropSoftDeletes();
+        });
+
     }
 }
