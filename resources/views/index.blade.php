@@ -40,11 +40,6 @@
     </section>
     <section id="homeSectie3" class="container-fluid p-0">
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active indicatoren"></li>
-                <li data-target="#carouselExampleCaptions" data-slide-to="1" class="indicatoren"></li>
-                <li data-target="#carouselExampleCaptions" data-slide-to="2" class="indicatoren"></li>
-            </ol>
             <div class="carousel-inner">
                 @if($banners)
                 @foreach($banners as $banner)

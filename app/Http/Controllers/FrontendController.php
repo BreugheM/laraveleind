@@ -47,6 +47,7 @@ class FrontendController extends Controller
         $cart = new Cart($oldCart);
         $cart->add($product,$id);
         Session::put('cart',$cart);
+        session()->flash('addedToCart','1 item has been added to cart');
         return redirect('shop');
     }
 

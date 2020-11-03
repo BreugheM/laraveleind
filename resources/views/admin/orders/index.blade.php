@@ -68,7 +68,7 @@
                                 @method('DELETE')
                                 <div class="form-group">
                                     <button type="submit" class="rounded-pill btn btn-outline-danger"><i class="fas fa-trash"></i>
-                                        Order not Completed
+                                        Order Completed
                                     </button>
                                 </div>
 

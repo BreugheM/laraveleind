@@ -98,26 +98,6 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        DISCOUNTS
-    </div>
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-    <!-- Nav Item - Discounts -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('discounts.index')}}">
-            <i class="fas fa-percentage"></i>
-            <span>All Discounts</span></a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('discounts.create')}}">
-            <i class="fas fa-plus-circle"></i>
-            <span>Add Discount</span></a>
-    </li>
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
         PRODUCTS
     </div>
     <!-- Divider -->

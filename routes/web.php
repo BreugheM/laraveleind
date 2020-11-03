@@ -2,6 +2,7 @@
 
 use App\Brand;
 use App\Category;
+use App\Order;
 use App\Product;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -56,7 +57,8 @@ Route::group(['middleware' =>'admin'], function(){
         $brands = Brand::all();
         $products = Product::all();
         $categories = Category::all();
-        return view('admin.index',compact('users','brands','products','categories','user'));
+        $orders = Order::all();
+        return view('admin.index',compact('users','brands','products','categories','user','orders'));
     })->name('admin');
 
     Route::resource('admin/users', 'AdminUsersController');

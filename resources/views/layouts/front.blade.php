@@ -26,26 +26,22 @@
 <section id="homeSectie1" class="container-fluid">
     <div class="row bg-white" id="navdeel1">
         <div class="col-lg-10 offset-lg-1 my-3">
-            <nav class="navbar navbar-expand-lg navbar-light ">
+            <nav class="navbar navbar-expand-lg navbar-light">
                 <a class="navbar-brand" href="{{route('index')}}"><img src="{{asset('images/portland.png')}}" alt=""></a>
-                <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
-                    <a href="{{route('checkout')}}">
-                        <span class="fa-2x" data-count="">
+                @if(session()->has('addedToCart'))
+                    <div class="alert alert-success w-25 ml-auto" role="alert">
+                        {{session()->get('addedToCart')}}
+                    </div>
+                @endif
+                <div class="ml-auto d-flex align-items-center">
 
-                                <i class="fa fa-shopping-cart fa-2x primary-cart"></i>
-                            </span>
+                    <a href="{{route('checkout')}}" class="my-auto">
+                        <span class="fa-2x" data-count="">
+                            <i class="fa fa-shopping-cart fa-2x primary-cart"></i>
+                        </span>
                     </a>
 
-                        <p class="my-auto d-none d-lg-block">CART <span id="aantalItems" class="py-1 px-2 m-0">{{Session::has('cart') ? Session::get('cart')->totalQuantity:'0'}}</span></p>
-                    <form id="form1" class="form-inline my-2 my-lg-0 d-block d-lg-none">
-                        <div id="zoekbar2" class="input-group ">
-                            <div class="input-group-prepend">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fas fa-search"></i></button>
-                            </div>
-                            <input type="text" class="form-control" placeholder="What are you looking for?" aria-label="Example text with button addon"
-                                   aria-describedby="button-addon1">
-                        </div>
-                    </form>
+                    <p class="my-auto d-none d-lg-block">CART <span id="aantalItems" class="py-1 px-2 m-0">{{Session::has('cart') ? Session::get('cart')->totalQuantity:'0'}}</span></p>
 
                     @if (Auth::guest())
                         <a href="{{route('home')}}" id="btn1" class="btn btn-outline-dark px-3 mx-lg-4">sign in</a>
@@ -72,7 +68,7 @@
                                 </form>
                             </div>
                         </div>
-                        @else
+                    @else
                         <div class="dropdown ml-3">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img class="rounded-circle " height="25"  src="{{Auth()->user()->photo ? asset('/images/userimg/' .
@@ -95,6 +91,8 @@
                         </div>
                     @endif
                 </div>
+
+
             </nav>
         </div>
     </div>
@@ -144,6 +142,9 @@
 
                         <a href="{{route('contact')}}" style="color: white">
                             <li class="list-group-item zwartebg">CONTACT</li>
+                        </a>
+                        <a href="{{route('reviews')}}" style="color: white">
+                            <li class="list-group-item zwartebg">REVIEWS</li>
                         </a>
 
                     </ul>

@@ -10,8 +10,10 @@ paypal.Buttons({
 
         var totaalPrijs = document.getElementById("totaalPrijs").innerHTML;
         let firstName = document.forms["formOrders"]["first_name"].value;
+        let lastName = document.forms["formOrders"]["last_name"].value;
+        let email = document.forms["formOrders"]["email"].value;
         console.log(firstName);
-        if(firstName ){
+        if(firstName){
             return actions.order.create({
                 purchase_units: [{
                     amount: {
@@ -40,6 +42,7 @@ paypal.Buttons({
     },
     onCancel: function (data) {
         // Show a cancel page, or return to cart
+        alert('Payment cancelled');
     }
 
 }).render('#paypal-button-container');

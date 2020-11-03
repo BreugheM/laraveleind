@@ -44,11 +44,11 @@
 <div class="col-lg-8">
     <div class="card shadow mb-2">
         <div class="card-header">
-            <b><i class="fab fa-product-hunt mx-2"></i>Products</b>
+            <b><i class="fab fa-product-hunt mx-2"></i>Orders</b>
         </div>
         <div class="card-body">
             <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text">You have {{count($orders)}} uncompleted orders</p>
             <a href="{{route('orders.index')}}" class="btn btn-primary">View all orders</a>
 
         </div>

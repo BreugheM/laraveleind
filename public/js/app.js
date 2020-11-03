@@ -84733,6 +84733,8 @@ paypal.Buttons({
     // This function sets up the details of the transaction, including the amount and line item details.
     var totaalPrijs = document.getElementById("totaalPrijs").innerHTML;
     var firstName = document.forms["formOrders"]["first_name"].value;
+    var lastName = document.forms["formOrders"]["last_name"].value;
+    var email = document.forms["formOrders"]["email"].value;
     console.log(firstName);
 
     if (firstName) {
@@ -84755,7 +84757,9 @@ paypal.Buttons({
       document.getElementById("formOrder").submit();
     });
   },
-  onCancel: function onCancel(data) {// Show a cancel page, or return to cart
+  onCancel: function onCancel(data) {
+    // Show a cancel page, or return to cart
+    alert('Payment cancelled');
   }
 }).render('#paypal-button-container');
 
